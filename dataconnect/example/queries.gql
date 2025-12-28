@@ -1,0 +1,55 @@
+mutation CreateNewCourse(
+  $title: String!
+  $description: String!
+  $difficultyLevel: String!
+  $status: String!
+) @auth(level: USER) {
+  course_insert(
+    data: {
+      title: $title
+      description: $description
+      difficultyLevel: $difficultyLevel
+      status: $status
+      createdAt_expr: "request.time"
+    }
+  )
+}
+
+query ListAvailableCourses @auth(level: PUBLIC, insecureReason: "This operation is safe to expose to the public") {
+  courses(where: {status: {eq: "available"}}) {
+    id
+    title
+    description
+    difficultyLevel
+    instructor {
+      id
+      displayName
+    }
+  }
+}
+
+mutation EnrollUserInCourse($courseId: UUID!) @auth(level: USER) {
+  enrollment_insert(
+    data: {
+      courseId: $courseId
+      userId_expr: "auth.uid"
+      enrolledAt_expr: "request.time"
+      progressPercentage: 0
+    }
+  )
+}
+
+query GetEnrolledCourses @auth(level: USER) {
+  enrollments(where: {userId: {eq_expr: "auth.uid"}}) {
+    course {
+      id
+      title
+      description
+      difficultyLevel
+    }
+    enrolledAt
+    completedAt
+    grade
+    progressPercentage
+  }
+}

@@ -1,0 +1,80 @@
+mutation SeedDatabase @transaction @auth(level: USER, insecureReason: "This mutation is safe to expose to all logged in users.") {
+  user_insertMany(data: [
+    {
+      id: "6b29c170-87b7-49b0-b662-5745035a0999",
+      displayName: "Demo User 1",
+      email: "demouser1@example.com",
+      passwordHash: "hashed_password_1",
+      role: "student",
+      createdAt: "2024-01-01T00:00:00Z"
+    },
+    {
+      id: "e5b8c6f2-1a2b-4c6a-9e5a-1b7a6b9a9b9b",
+      displayName: "Demo User 2",
+      email: "demouser2@example.com",
+      passwordHash: "hashed_password_2",
+      role: "instructor",
+      createdAt: "2024-01-05T00:00:00Z"
+    }
+  ])
+  course_insertMany(data: [
+    {
+      id: "a1b2c3d4-e5f6-4789-9012-34567890abcd",
+      instructorId: "e5b8c6f2-1a2b-4c6a-9e5a-1b7a6b9a9b9b",
+      title: "Introduction to Programming",
+      description: "A beginner-friendly course covering basic programming concepts.",
+      difficultyLevel: "beginner",
+      status: "active",
+      createdAt: "2024-01-10T00:00:00Z"
+    },
+    {
+      id: "f1e2d3c4-b5a6-4987-8fed-76543210zyxw",
+      instructorId: "e5b8c6f2-1a2b-4c6a-9e5a-1b7a6b9a9b9b",
+      title: "Advanced Data Structures",
+      description: "An in-depth look at complex data structures and algorithms.",
+      difficultyLevel: "advanced",
+      status: "active",
+      createdAt: "2024-01-15T00:00:00Z"
+    }
+  ])
+  module_insertMany(data: [
+    {
+      id: "m1n2o3p4-q5r6-4a9b-8c1d-2e3f4a5b6c7d",
+      courseId: "a1b2c3d4-e5f6-4789-9012-34567890abcd",
+      title: "Variables and Data Types",
+      orderIndex: 1
+    },
+    {
+      id: "z9y8x7w6-v5u4-4c3b-2a10-9f8e7d6c5b4a",
+      courseId: "f1e2d3c4-b5a6-4987-8fed-76543210zyxw",
+      title: "Binary Trees",
+      orderIndex: 1
+    }
+  ])
+  lesson_insertMany(data: [
+    {
+      id: "l1k2j3h4-g5f6-4e7d-8c9b-0a1b2c3d4e5f",
+      moduleId: "m1n2o3p4-q5r6-4a9b-8c1d-2e3f4a5b6c7d",
+      title: "Introduction to Variables",
+      contentUrl: "http://example.com/lesson1",
+      orderIndex: 1,
+      type: "video"
+    },
+    {
+      id: "q4w3e2r1-t6y7-4b8a-9d0c-1a2b3c4d5e6f",
+      moduleId: "z9y8x7w6-v5u4-4c3b-2a10-9f8e7d6c5b4a",
+      title: "Tree Traversals",
+      contentUrl: "http://example.com/lesson2",
+      orderIndex: 1,
+      type: "article"
+    }
+  ])
+  enrollment_insertMany(data: [
+    {
+      userId: "6b29c170-87b7-49b0-b662-5745035a0999",
+      courseId: "a1b2c3d4-e5f6-4789-9012-34567890abcd",
+      enrolledAt: "2024-01-12T00:00:00Z",
+      progressPercentage: 10,
+    }
+  ])
+}

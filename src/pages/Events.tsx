@@ -9,6 +9,7 @@ import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import hero3 from "@/assets/hero-3.jpg";
 
+/* DATA – NO CHANGE */
 const onlineEvents = [
   {
     id: 1,
@@ -77,67 +78,56 @@ const Events = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="py-20">
+      <section className="py-20 bg-[#dbd7c7] dark:bg-[#b3aa9e]">
         <div className="container mx-auto px-4">
+
+          {/* HERO */}
           <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-2 bg-[#faa114]/20 rounded-full text-sm font-medium mb-4">
               Events
             </span>
-            <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
-              Upcoming <span className="text-gradient">Events</span>
+            <h1 className="text-4xl lg:text-5xl font-bold mb-4">
+              Upcoming <span className="text-[#faa114]">Events</span>
             </h1>
-            <p className="text-lg text-muted-foreground">
-              Join our workshops, webinars, and networking events to enhance your
-              learning and connect with industry professionals.
+            <p className="text-lg opacity-80">
+              Join our workshops, webinars, and networking events.
             </p>
           </AnimatedSection>
 
-          {/* Online Events */}
+          {/* ONLINE EVENTS */}
           <div className="mb-20">
             <AnimatedSection className="flex items-center gap-3 mb-8">
-              <div className="p-2 bg-accent/10 rounded-lg">
-                <Monitor className="w-6 h-6 text-accent" />
-              </div>
-              <h2 className="text-2xl font-bold text-foreground">
-                Online Events
-              </h2>
+              <Monitor className="w-6 h-6" />
+              <h2 className="text-2xl font-bold">Online Events</h2>
             </AnimatedSection>
 
             <div className="grid md:grid-cols-3 gap-6">
-              {onlineEvents.map((event, index) => (
-                <AnimatedSection key={event.id} delay={index * 0.1}>
+              {onlineEvents.map((event) => (
+                <AnimatedSection key={event.id}>
                   <motion.div
                     whileHover={{ y: -8 }}
-                    className="bg-card border border-border rounded-xl overflow-hidden card-hover-glow group"
+                    className="bg-[#786e67] dark:bg-[#262a2b] rounded-xl overflow-hidden text-white"
                   >
-                    <div className="relative aspect-video overflow-hidden">
-                      <img
-                        src={event.image}
-                        alt={event.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <span className="absolute top-4 left-4 px-3 py-1 bg-accent text-accent-foreground text-sm rounded-full">
-                        {event.type}
-                      </span>
-                    </div>
+                    <img src={event.image} alt={event.title} className="w-full h-48 object-cover" />
+
                     <div className="p-5">
-                      <h3 className="font-semibold text-lg text-foreground mb-3">
-                        {event.title}
-                      </h3>
-                      <div className="space-y-2 text-sm text-muted-foreground mb-4">
+                      <h3 className="font-semibold text-lg mb-3">{event.title}</h3>
+
+                      <div className="space-y-2 text-sm mb-4">
                         <div className="flex items-center gap-2">
-                          <Calendar className="w-4 h-4 text-accent" />
+                          <Calendar className="w-4 h-4 text-[#faa114]" />
                           {event.date}
                         </div>
                         <div className="flex items-center gap-2">
-                          <Clock className="w-4 h-4 text-accent" />
+                          <Clock className="w-4 h-4 text-[#faa114]" />
                           {event.time}
                         </div>
                       </div>
+
+                      {/* ✅ FIXED BUTTON */}
                       <Button
+                        className="w-full bg-[#faa114] text-black hover:bg-[#e5940f]"
                         onClick={() => handleEnroll(event.title)}
-                        className="w-full bg-accent text-accent-foreground hover:bg-accent/90 btn-glow"
                       >
                         Register Now
                       </Button>
@@ -148,55 +138,44 @@ const Events = () => {
             </div>
           </div>
 
-          {/* Offline Events */}
+          {/* OFFLINE EVENTS */}
           <div>
             <AnimatedSection className="flex items-center gap-3 mb-8">
-              <div className="p-2 bg-accent/10 rounded-lg">
-                <Users className="w-6 h-6 text-accent" />
-              </div>
-              <h2 className="text-2xl font-bold text-foreground">
-                Offline Events
-              </h2>
+              <Users className="w-6 h-6" />
+              <h2 className="text-2xl font-bold">Offline Events</h2>
             </AnimatedSection>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {offlineEvents.map((event, index) => (
-                <AnimatedSection key={event.id} delay={index * 0.1}>
+              {offlineEvents.map((event) => (
+                <AnimatedSection key={event.id}>
                   <motion.div
                     whileHover={{ y: -8 }}
-                    className="bg-card border border-border rounded-xl overflow-hidden card-hover-glow group"
+                    className="bg-[#786e67] dark:bg-[#262a2b] rounded-xl overflow-hidden text-white"
                   >
-                    <div className="relative aspect-video overflow-hidden">
-                      <img
-                        src={event.image}
-                        alt={event.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <span className="absolute top-4 left-4 px-3 py-1 bg-accent text-accent-foreground text-sm rounded-full">
-                        {event.type}
-                      </span>
-                    </div>
+                    <img src={event.image} alt={event.title} className="w-full h-48 object-cover" />
+
                     <div className="p-5">
-                      <h3 className="font-semibold text-lg text-foreground mb-3">
-                        {event.title}
-                      </h3>
-                      <div className="space-y-2 text-sm text-muted-foreground mb-4">
+                      <h3 className="font-semibold text-lg mb-3">{event.title}</h3>
+
+                      <div className="space-y-2 text-sm mb-4">
                         <div className="flex items-center gap-2">
-                          <Calendar className="w-4 h-4 text-accent" />
+                          <Calendar className="w-4 h-4 text-[#faa114]" />
                           {event.date}
                         </div>
                         <div className="flex items-center gap-2">
-                          <Clock className="w-4 h-4 text-accent" />
+                          <Clock className="w-4 h-4 text-[#faa114]" />
                           {event.time}
                         </div>
                         <div className="flex items-center gap-2">
-                          <MapPin className="w-4 h-4 text-accent" />
+                          <MapPin className="w-4 h-4 text-[#faa114]" />
                           {event.location}
                         </div>
                       </div>
+
+                      {/* ✅ FIXED BUTTON */}
                       <Button
+                        className="w-full bg-[#faa114] text-black hover:bg-[#e5940f]"
                         onClick={() => handleEnroll(event.title)}
-                        className="w-full bg-accent text-accent-foreground hover:bg-accent/90 btn-glow"
                       >
                         Register Now
                       </Button>
@@ -209,28 +188,7 @@ const Events = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-secondary/30">
-        <div className="container mx-auto px-4">
-          <AnimatedSection className="text-center max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold text-foreground mb-4">
-              Want to Host an Event?
-            </h2>
-            <p className="text-muted-foreground mb-6">
-              Partner with TECHINS to organize workshops, hackathons, or
-              networking events. Reach out to our events team.
-            </p>
-            <Button
-              className="bg-accent text-accent-foreground hover:bg-accent/90 btn-glow"
-              onClick={() => handleEnroll("Event Partnership Inquiry")}
-            >
-              Contact Events Team
-            </Button>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Registration Modal */}
+      {/* MODAL */}
       <EnrollModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
