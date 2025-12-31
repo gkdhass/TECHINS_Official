@@ -18,28 +18,36 @@ const CourseDetailsModal = ({ isOpen, onClose, course }: any) => {
             animate={{ scale: 1 }}
             exit={{ scale: 0.9 }}
           >
-            <h2 className="text-2xl font-bold mb-2">{course.title}</h2>
+            {/* Title */}
+            <h2 className="text-2xl font-bold mb-2 text-black dark:text-white">
+              {course.title}
+            </h2>
 
+            {/* Image */}
             <img
               src={course.image}
               alt={course.title}
-              className="rounded-lg mb-4"
+              className="rounded-lg mb-4 w-full h-48 object-cover"
             />
 
-            <ul className="space-y-2 text-sm opacity-90">
-              <li>Duration: {course.duration}</li>
-              <li>Language: {course.language}</li>
-              <li>Price: {course.price}</li>
+            {/* Course Info */}
+            <ul className="space-y-2 text-sm opacity-90 text-black dark:text-gray-300">
+              <li><strong>Duration:</strong> {course.duration}</li>
+              <li><strong>Language:</strong> {course.language}</li>
+              <li><strong>Price:</strong> {course.price}</li>
             </ul>
 
-            <p className="mt-4 text-sm opacity-80">
-              Hands-on learning, real-world projects, and mentor guidance to make
-              you job-ready.
+            {/* UPDATED DESCRIPTION */}
+            <p className="mt-4 text-sm opacity-80 text-black dark:text-gray-400">
+              {course.description
+                ? course.description
+                : "Hands-on learning with real-world projects and expert mentor guidance."}
             </p>
 
+            {/* Close Button */}
             <button
               onClick={onClose}
-              className="mt-6 w-full py-2 rounded-lg bg-[#faa114] text-black"
+              className="mt-6 w-full py-2 rounded-lg bg-[#faa114] text-black font-semibold"
             >
               Close
             </button>

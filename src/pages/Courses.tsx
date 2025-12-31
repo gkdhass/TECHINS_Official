@@ -9,121 +9,148 @@ import EnrollModal from "@/components/ui/EnrollModal";
 import CourseDetailsModal from "@/components/ui/CourseDetailsModal";
 
 import courseWeb from "@/assets/course-web.jpg";
+import courseWeb1 from "@/assets/course-web1.jpg";
+import courseWeb2 from "@/assets/course-web2.jpg";
 import courseData from "@/assets/course-data.jpg";
+import courseData1 from "@/assets/course-data1.jpg";
 import courseCloud from "@/assets/course-cloud.jpg";
+import courseCloud1 from "@/assets/course-cloud1.jpg";
 import courseSecurity from "@/assets/course-security.jpg";
 import courseMobile from "@/assets/course-mobile.jpg";
 import courseAi from "@/assets/course-ai.jpg";
+import courseAi1 from "@/assets/course-ai1.jpg";
 
 /* ================= COURSES DATA ================= */
 const workshops = [
   {
     id: 101,
-    title: "Web Development Workshop",
+    title: "Innovate 360",
+    image: courseAi,
+    // duration: "1 Day",
+    language: "English",
+    // price: "Free",
+    mode: "Offline",
+    description:
+      "Interactive workshop introducing creative thinking and innovation. Helps students think beyond textbooks and develop teamwork and problem-solving skills.",
+  },
+  {
+    id: 102,
+    title: "Science in Real Life",
+    image: courseData,
+    // duration: "3 Hours",
+    language: "English",
+    // price: "Free",
+    mode: "Offline",
+    description:
+      "Demonstration-based workshop that connects scientific concepts with everyday life, making learning science enjoyable and memorable.",
+  },
+  {
+    id: 103,
+    title: "Career Discovery Day",
+    image: courseCloud,
+    // duration: "1 Day",
+    language: "English",
+    // price: "Free",
+    mode: "Offline",
+    description:
+      "Career exploration workshop for students and parents to understand career paths, future opportunities, and make informed decisions early.",
+  },
+  {
+    id: 104,
+    title: "Confidence & Communication",
     image: courseWeb,
-    duration: "1 Day",
+    // duration: "3 Hours",
     language: "English",
-    price: "Free",
-    description: "Hands-on workshop covering HTML, CSS & basics of React.",
-  },
-  {
-    id: 102,
-    title: "AI & Future Tech Workshop",
-    image: courseAi,
-    duration: "3 Hours",
-    language: "English",
-    price: "₹499",
-    description: "Introduction to AI, tools & future tech trends.",
-  },
-  {
-    id: 102,
-    title: "AI & Future Tech Workshop",
-    image: courseAi,
-    duration: "3 Hours",
-    language: "English",
-    price: "₹499",
-    description: "Introduction to AI, tools & future tech trends.",
-  },
-  {
-    id: 102,
-    title: "AI & Future Tech Workshop",
-    image: courseAi,
-    duration: "3 Hours",
-    language: "English",
-    price: "₹499",
-    description: "Introduction to AI, tools & future tech trends.",
+    // price: "Free",
+    mode: "Offline",
+    description:
+      "Personality development workshop focused on communication skills, self-confidence, and leadership qualities.",
   },
 ];
 
 const onlineCourses = [
   {
-    id: 1,
-    title: "Full Stack Web Development Bootcamp",
-    image: courseWeb,
-    duration: "12 Weeks",
+    id: 201,
+    title: "Concept → Clarity",
+    image: courseWeb1,
+    // duration: "8 Weeks",
     language: "English",
-    price: "₹29,999",
-    description: "Frontend + Backend + Projects + Deployment.",
+    // price: "₹2,999",
+    mode: "Online",
+    description:
+      "Online course designed to help students clearly understand school syllabus concepts through simple explanations and visual learning, improving academic performance.",
   },
   {
-    id: 2,
-    title: "Data Science & Machine Learning",
-    image: courseData,
-    duration: "16 Weeks",
+    id: 202,
+    title: "Future Map",
+    image: courseAi1,
+    // duration: "4 Weeks",
     language: "English",
-    price: "₹34,999",
-    description: "Python, ML models, real-world datasets.",
+    // price: "₹1,999",
+    mode: "Online",
+    description:
+      "Online guidance course helping students explore interests, strengths, and future career options for confident stream and career selection.",
   },
-  
 ];
 
 const offlineCourses = [
   {
-    id: 3,
-    title: "Cybersecurity Professional Program",
+    id: 301,
+    title: "Score+",
     image: courseSecurity,
-    duration: "14 Weeks",
+    duration: "10 Weeks",
     language: "English",
-    price: "₹44,999",
-    description: "Ethical hacking, networking & security tools.",
+    price: "₹6,999",
+    mode: "Offline",
+    description:
+      "Offline academic improvement program focused on boosting exam performance through structured teaching, assessments, and answer-writing strategies.",
   },
   {
-    id: 4,
-    title: "Mobile App Development (React Native)",
+    id: 302,
+    title: "Foundation X",
     image: courseMobile,
-    duration: "12 Weeks",
+    // duration: "12 Weeks",
     language: "English",
-    price: "₹39,999",
-    description: "Build Android & iOS apps using React Native.",
+    // price: "₹7,999",
+    mode: "Offline",
+    description:
+      "Foundation course that builds strong basics in Science and Mathematics, helping younger students gain confidence and logical thinking skills.",
   },
   {
-    id: 4,
-    title: "Mobile App Development (React Native)",
-    image: courseMobile,
-    duration: "12 Weeks",
+    id: 303,
+    title: "Applied Learning Lab",
+    image: courseData1,
+    // duration: "8 Weeks",
     language: "English",
-    price: "₹39,999",
-    description: "Build Android & iOS apps using React Native.",
+    // price: "₹8,999",
+    mode: "Offline",
+    description:
+      "Hands-on program where students apply theoretical concepts to real-world situations, improving practical understanding and problem-solving skills.",
   },
   {
-    id: 4,
-    title: "Mobile App Development (React Native)",
-    image: courseMobile,
-    duration: "12 Weeks",
+    id: 304,
+    title: "Exam Ready",
+    image: courseCloud1,
+    // duration: "4 Weeks",
     language: "English",
-    price: "₹39,999",
-    description: "Build Android & iOS apps using React Native.",
+    // price: "₹3,999",
+    mode: "Offline",
+    description:
+      "Short-term revision program designed to prepare students for final exams through focused revision, practice, and time management.",
   },
   {
-    id: 4,
-    title: "Mobile App Development (React Native)",
-    image: courseMobile,
-    duration: "12 Weeks",
+    id: 305,
+    title: "Mentor Path",
+    image: courseWeb2,
+    // duration: "Ongoing",
     language: "English",
-    price: "₹39,999",
-    description: "Build Android & iOS apps using React Native.",
+    // price: "₹9,999",
+    mode: "Offline",
+    description:
+      "Personalized one-to-one mentorship program providing academic guidance, career clarity, consistent motivation, and goal-focused support.",
   },
 ];
+
 
 const Courses = () => {
   const [searchQuery, setSearchQuery] = useState("");

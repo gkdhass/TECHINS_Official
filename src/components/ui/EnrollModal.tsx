@@ -8,14 +8,27 @@ import { CheckCircle } from "lucide-react";
 interface Props {
   isOpen: boolean;
   onClose: () => void;
-  courseName: string;
+  title: string;
+  type: "course" | "event";
 }
 
-/* Input UI */
 const inputClass =
   "bg-[#fcfcfb] text-[#262a2b] placeholder:text-[#6b6b6b] disabled:opacity-100 disabled:text-[#262a2b]";
 
-const EnrollModal: React.FC<Props> = ({ isOpen, onClose, courseName }) => {
+const EMAIL_CONFIG = {
+  course: {
+    serviceId: "service_gl8c1jd",
+    templateId: "template_ohu1s5k",
+    publicKey: "CDLHR5ifjiKvN5taS",
+  },
+  event: {
+    serviceId: "service_gl8c1jd",
+    templateId: "template_a1yk0cn",
+    publicKey: "CDLHR5ifjiKvN5taS",
+  },
+};
+
+const EnrollModal: React.FC<Props> = ({ isOpen, onClose, title, type }) => {
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -38,17 +51,20 @@ const EnrollModal: React.FC<Props> = ({ isOpen, onClose, courseName }) => {
     e.preventDefault();
     setLoading(true);
 
+    const config = EMAIL_CONFIG[type];
+
     try {
       await emailjs.send(
-        "service_84zlozt",
-        "template_hkwbt6e",
+        config.serviceId,
+        config.templateId,
         {
           user_name: form.name,
           user_email: form.email,
           user_phone: form.phone,
-          event_name: courseName,
+          title: title,
+          type: type.toUpperCase(), // COURSE / EVENT
         },
-        "Mv2ZLk8xbhYJuDxyW"
+        config.publicKey
       );
 
       setSuccess(true);
@@ -74,57 +90,38 @@ const EnrollModal: React.FC<Props> = ({ isOpen, onClose, courseName }) => {
         className="bg-[#262a2b] text-white border border-white/10 rounded-2xl w-full max-w-md p-6"
       >
         <AnimatePresence mode="wait">
-          {/* ✅ SUCCESS POP */}
           {success ? (
             <motion.div
               key="success"
               initial={{ scale: 0.6, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.6, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 260, damping: 18 }}
-              className="flex flex-col items-center justify-center py-12 text-center"
+              className="flex flex-col items-center py-12 text-center"
             >
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.1, type: "spring", stiffness: 300 }}
-              >
-                <CheckCircle className="w-16 h-16 text-green-400 mb-4" />
-              </motion.div>
-
+              <CheckCircle className="w-16 h-16 text-green-400 mb-4" />
               <h3 className="text-xl font-semibold mb-2">
                 Registration Successful 🎉
               </h3>
               <p className="text-sm text-white/70">
-                Confirmation mail has been sent to you
+                Confirmation mail has been sent
               </p>
             </motion.div>
           ) : (
-            /* FORM */
-            <motion.div
-              key="form"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.25 }}
-            >
+            <motion.div key="form">
               <h2 className="text-2xl font-bold mb-2">
                 Register for{" "}
-                <span className="text-[#faa114]">{courseName}</span>
+                <span className="text-[#faa114]">{title}</span>
               </h2>
 
-              <p className="text-sm text-white/70 mb-6">
-                Fill the details below to confirm your registration
-              </p>
-
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <Input className={inputClass} value={courseName} disabled />
+              <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+                <Input className={inputClass} value={title} disabled />
 
                 <Input
                   className={inputClass}
                   placeholder="Full Name"
                   value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  onChange={(e) =>
+                    setForm({ ...form, name: e.target.value })
+                  }
                   required
                 />
 
@@ -133,7 +130,9 @@ const EnrollModal: React.FC<Props> = ({ isOpen, onClose, courseName }) => {
                   type="email"
                   placeholder="Email Address"
                   value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  onChange={(e) =>
+                    setForm({ ...form, email: e.target.value })
+                  }
                   required
                 />
 
@@ -141,7 +140,9 @@ const EnrollModal: React.FC<Props> = ({ isOpen, onClose, courseName }) => {
                   className={inputClass}
                   placeholder="Phone Number"
                   value={form.phone}
-                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                  onChange={(e) =>
+                    setForm({ ...form, phone: e.target.value })
+                  }
                   required
                 />
 
@@ -150,7 +151,7 @@ const EnrollModal: React.FC<Props> = ({ isOpen, onClose, courseName }) => {
                     type="button"
                     onClick={handleCancel}
                     disabled={loading}
-                    className="w-1/2 bg-transparent border border-white/20 text-white hover:bg-white/10"
+                    className="w-1/2 bg-transparent border border-white/20"
                   >
                     Cancel
                   </Button>
@@ -158,9 +159,9 @@ const EnrollModal: React.FC<Props> = ({ isOpen, onClose, courseName }) => {
                   <Button
                     type="submit"
                     disabled={loading}
-                    className="w-1/2 bg-[#faa114] text-black hover:bg-[#e5940f]"
+                    className="w-1/2 bg-[#faa114] text-black"
                   >
-                    {loading ? "Sending..." : "Confirm Registration"}
+                    {loading ? "Sending..." : "Confirm"}
                   </Button>
                 </div>
               </form>

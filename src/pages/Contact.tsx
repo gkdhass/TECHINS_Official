@@ -38,7 +38,9 @@ const Contact = () => {
     role: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -46,25 +48,42 @@ const Contact = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    const serviceId = "service_m8prvnc";
-    const templateId = "template_049akar";
-    const publicKey = "C3kSMsITJ-JZMpXE7";
+    const serviceId = "service_gysyqzh";
+    const publicKey = "k1exk0SpjJkiyVWhP";
+
+    const contactTemplateId = "template_zxax9vu";
+    const internshipTemplateId = "template_zntipqc";
+
+    const templateId = isInternship
+      ? internshipTemplateId
+      : contactTemplateId;
 
     const templateParams = {
       from_name: `${formData.firstName} ${formData.lastName}`,
       from_email: formData.email,
       phone: formData.phone,
       message: formData.message,
-      form_type: isInternship ? "Internship Application" : "General Contact",
-      college: formData.college,
-      degree: formData.degree,
-      year: formData.year,
-      role: formData.role,
+
+      college: isInternship ? formData.college : "",
+      degree: isInternship ? formData.degree : "",
+      year: isInternship ? formData.year : "",
+      role: isInternship ? formData.role : "",
+
+      form_type: isInternship
+        ? "Internship Application"
+        : "General Contact",
+
       to_name: "TECHINS",
     };
 
     try {
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
+      );
+
       setIsSuccess(true);
       setFormData({
         firstName: "",
@@ -78,6 +97,7 @@ const Contact = () => {
         role: "",
       });
       setIsInternship(false);
+
       setTimeout(() => setIsSuccess(false), 3000);
     } catch {
       alert("Failed to send message. Please try again.");
@@ -102,7 +122,6 @@ const Contact = () => {
 
   return (
     <Layout>
-
       {/* HERO */}
       <section className="py-20 bg-[#dbd7c7] dark:bg-[#b3aa9e] text-[#262a2b] dark:text-[#f5f5f5]">
         <div className="container mx-auto px-4">
@@ -119,10 +138,9 @@ const Contact = () => {
           </AnimatedSection>
 
           <div className="grid lg:grid-cols-2 gap-12">
-
             {/* FORM */}
             <AnimatedSection direction="left">
-              <div className="bg-[#786e67] dark:bg-[#262a2b] border rounded-2xl p-6 lg:p-8 text-[#262a2b] dark:text-[#f5f5f5]">
+              <div className="bg-[#786e67] dark:bg-[#262a2b] border rounded-2xl p-6 lg:p-8">
                 <h2 className="text-2xl font-bold mb-6">Send us a Message</h2>
 
                 {isSuccess ? (
@@ -139,20 +157,26 @@ const Contact = () => {
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-5">
-
                     <div className="flex gap-4">
                       <Button
                         type="button"
-                        variant={!isInternship ? "default" : "outline"}
-                        className="w-full bg-[#faa114] hover:bg-[#e5940f] text-black"
+                        className={`w-full ${
+                          !isInternship
+                            ? "bg-[#faa114] text-black"
+                            : "border"
+                        }`}
                         onClick={() => setIsInternship(false)}
                       >
                         Contact Us
                       </Button>
+
                       <Button
                         type="button"
-                        variant={isInternship ? "default" : "outline"}
-                        className="w-full bg-[#faa114] hover:bg-[#e5940f] text-black"
+                        className={`w-full ${
+                          isInternship
+                            ? "bg-[#faa114] text-black"
+                            : "border"
+                        }`}
                         onClick={() => setIsInternship(true)}
                       >
                         Internship Apply
@@ -160,11 +184,11 @@ const Contact = () => {
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-5">
-                      <div className="space-y-2">
+                      <div>
                         <Label>First Name</Label>
                         <Input name="firstName" value={formData.firstName} onChange={handleChange} required />
                       </div>
-                      <div className="space-y-2">
+                      <div>
                         <Label>Last Name</Label>
                         <Input name="lastName" value={formData.lastName} onChange={handleChange} required />
                       </div>
@@ -194,18 +218,16 @@ const Contact = () => {
                     <Label>Message</Label>
                     <Textarea rows={5} name="message" value={formData.message} onChange={handleChange} required />
 
-                    <Button
-                      type="submit"
-                      disabled={isLoading}
-                      className="w-full bg-[#faa114] hover:bg-[#e5940f] text-black"
-                    >
+                    <Button type="submit" disabled={isLoading} className="w-full bg-[#faa114] text-black">
                       {isLoading ? (
                         <>
-                          <Loader2 className="w-4 h-4 mr-2 animate-spin" /> Sending...
+                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                          Sending...
                         </>
                       ) : (
                         <>
-                          <Send className="w-4 h-4 mr-2" /> Send Message
+                          <Send className="w-4 h-4 mr-2" />
+                          Send Message
                         </>
                       )}
                     </Button>
@@ -216,7 +238,7 @@ const Contact = () => {
 
             {/* INFO */}
             <AnimatedSection direction="right" className="space-y-8">
-              <div className="bg-[#786e67] dark:bg-[#262a2b] border rounded-2xl p-6 text-[#262a2b] dark:text-[#f5f5f5]">
+              <div className="bg-[#786e67] dark:bg-[#262a2b] border rounded-2xl p-6">
                 <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
                 <ul className="space-y-3">
                   {quickLinks.map((l) => (
@@ -227,7 +249,7 @@ const Contact = () => {
                 </ul>
               </div>
 
-              <div className="bg-[#786e67] dark:bg-[#262a2b] border rounded-2xl p-6 text-[#262a2b] dark:text-[#f5f5f5]">
+              <div className="bg-[#786e67] dark:bg-[#262a2b] border rounded-2xl p-6">
                 <p className="flex items-center gap-2"><Mail /> techins2024@gmail.com</p>
                 <p className="flex items-center gap-2"><Phone /> +91 123456789</p>
                 <p className="flex items-center gap-2"><MapPin /> Karur, Tamil Nadu</p>
@@ -248,37 +270,11 @@ const Contact = () => {
                 </div>
               </div>
             </AnimatedSection>
-
           </div>
         </div>
       </section>
-
-      {/* MAP */}
-      <section className="py-12 bg-[#dbd7c7] dark:bg-[#b3aa9e]">
-        <div className="container mx-auto px-4">
-          <div className="bg-[#786e67] dark:bg-[#262a2b] border rounded-2xl overflow-hidden h-[400px]">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3912.195541965248!2d78.0679576!3d10.9651516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baa2f072495398f%3A0x947cfc7a1f7d9f1b!2sKarur%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1733740000000"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              loading="lazy"
-              allowFullScreen
-              referrerPolicy="no-referrer-when-downgrade"
-              title="TECHINS Location - Karur"
-            />
-          </div>
-        </div>
-      </section>
-
     </Layout>
   );
 };
 
 export default Contact;
-
-
-
-
-
-

@@ -24,9 +24,9 @@ const partners = [
 
 const Index = () => {
   const heroImages = [
-    <img key="1" src={hero1} alt="EdTech learning" className="w-full h-full object-cover" />,
-    <img key="2" src={hero2} alt="Coding bootcamp" className="w-full h-full object-cover" />,
-    <img key="3" src={hero3} alt="Tech education" className="w-full h-full object-cover" />,
+    <img key="1" src={hero1} alt="Curriculum aligned learning" className="w-full h-full object-cover" />,
+    <img key="2" src={hero2} alt="Concept based education" className="w-full h-full object-cover" />,
+    <img key="3" src={hero3} alt="Real world learning" className="w-full h-full object-cover" />,
   ];
 
   const textVariants = {
@@ -51,7 +51,7 @@ const Index = () => {
                   variants={textVariants}
                   className="inline-block px-4 py-2 bg-[#faa114]/10 text-[#faa114] rounded-full text-sm font-medium"
                 >
-                  #1 Tech Education Platform
+                  Curriculum-Aligned EdTech Platform
                 </motion.span>
 
                 <motion.h1
@@ -59,8 +59,8 @@ const Index = () => {
                   variants={textVariants}
                   className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
                 >
-                  Where Learning Becomes Ideas{" "}
-                  <span className="text-[#eb9710]">Tech Skills</span>
+                  Connecting Education with{" "}
+                  <span className="text-[#eb9710]">Reality</span>
                 </motion.h1>
 
                 <motion.p
@@ -68,9 +68,8 @@ const Index = () => {
                   variants={textVariants}
                   className="text-lg max-w-lg opacity-80"
                 >
-                  TECHINS bridges school education with real-world applications,
-                  innovation, and technology—helping students understand why
-                  they learn, not just what they learn.
+                  Curriculum-aligned learning that builds clarity, confidence, and real-world understanding.
+                  We help students move beyond memorization by connecting textbook concepts to real-life applications.
                 </motion.p>
               </motion.div>
 
@@ -81,7 +80,7 @@ const Index = () => {
                   className="bg-[#faa114] text-[#3f3f39] hover:bg-[#faa114]/90"
                 >
                   <Link to="/courses">
-                    Explore TECHINS
+                    Explore Our Approach
                     <ChevronRight className="ml-2 w-4 h-4" />
                   </Link>
                 </Button>
@@ -91,7 +90,7 @@ const Index = () => {
                   size="lg"
                   className="bg-white text-black border border-black hover:bg-gray-100"
                 >
-                  <Link to="/contact">Contact Us</Link>
+                  <Link to="/contact">Work With TECHINS</Link>
                 </Button>
               </motion.div>
             </div>
@@ -105,64 +104,24 @@ const Index = () => {
         </div>
       </section>
 
-<section className="py-16 bg-[#dbd7c7] dark:bg-[#b3aa9e] text-white">
-  <div className="container mx-auto px-4">
-
-    {/* Title Animation */}
-    <AnimatedSection className="text-center mb-8">
-      <h2 className="text-2xl font-bold mb-2">
-        Our Partners & Accreditations
-      </h2>
-      <p className="opacity-90">
-        Recognized by leading tech companies worldwide
-      </p>
-    </AnimatedSection>
-
-    {/* Marquee – ORIGINAL LOGO COLORS */}
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{
-        duration: 0.25,
-        ease: "easeOut",
-      }}
-      className="
-        [&_img]:opacity-90
-        [&_img]:transition
-        [&_img]:duration-200
-        [&_img:hover]:opacity-100
-        [&_img]:brightness-110
-        [&_img]:contrast-110
-      "
-    >
-      <PartnerMarquee partners={partners} />
-    </motion.div>
-
-  </div>
-</section>
-
-
-
-
-
-      {/* FEATURES */}
+      {/* WHY TECHINS */}
       <section className="py-20 bg-[#D1D1D1] dark:bg-[#8C8C8C] text-[#3f3f39]">
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-              Why Choose TECHINS?
+              Why TECHINS
             </h2>
             <p className="opacity-80">
-              We connect textbook concepts with real-world thinking and innovation.
+              Curriculum-aligned learning with equal focus on academic performance and conceptual clarity,
+              designed around how students actually learn.
             </p>
           </AnimatedSection>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              "Understand concepts deeply",
-              "Improve academic performance",
-              "Develop curiosity & problem-solving",
+              "Curriculum-Aligned Learning",
+              "Marks with Conceptual Clarity",
+              "Real-World Application Focus",
             ].map((title, index) => (
               <motion.div
                 key={index}
@@ -171,7 +130,7 @@ const Index = () => {
               >
                 <h3 className="text-xl font-semibold mb-2">{title}</h3>
                 <p className="opacity-90">
-                  Learn with clarity, confidence, and real-world understanding.
+                  Structured learning that connects textbook concepts with real-life understanding.
                 </p>
               </motion.div>
             ))}
@@ -179,14 +138,37 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* PARTNERS */}
+      {/* <section className="py-16 bg-[#dbd7c7] dark:bg-[#b3aa9e] text-[#262a2b] dark:text-white">
+        <div className="container mx-auto px-4">
+          <AnimatedSection className="text-center mb-8">
+            <h2 className="text-2xl font-bold mb-2">
+              Our Partners & Accreditations
+            </h2>
+            <p className="opacity-90">
+              Recognized by leading technology organizations
+            </p>
+          </AnimatedSection>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+          >
+            <PartnerMarquee partners={partners} />
+          </motion.div>
+        </div>
+      </section> */}
+
+      {/* FINAL CTA */}
       <section className="py-20 bg-[#dbd7c7] dark:bg-[#3f3f39] text-[#3f3f39] dark:text-[#D1D1D1]">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            Ready to Start Your Tech Journey?
+            Start Learning with Clarity and Purpose
           </h2>
           <p className="max-w-2xl mx-auto mb-8 opacity-80">
-            Join thousands of students who transformed their learning with TECHINS.
+            Discover a learning approach that connects academics with real-world understanding.
           </p>
 
           <Button
@@ -195,7 +177,7 @@ const Index = () => {
             className="bg-[#faa114] text-[#3f3f39] hover:bg-[#faa114]/90"
           >
             <Link to="/courses">
-              Browse All Courses
+              Work With TECHINS
               <ChevronRight className="ml-2 w-4 h-4" />
             </Link>
           </Button>

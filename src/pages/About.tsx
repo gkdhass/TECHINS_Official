@@ -17,13 +17,13 @@ const About = () => {
               About TECHINS
             </span>
             <h1 className="text-4xl lg:text-5xl font-bold mb-4">
-              Learning Today,{" "}
-              <span className="text-[#faa114]">Leading Tomorrow</span>
+              Connecting Education with{" "}
+              <span className="text-[#faa114]">Reality</span>
             </h1>
             <p className="text-lg opacity-80">
-              TECHINS (Technologically Innovative Students) is an EdTech
-              initiative focused on bridging the gap between academic learning
-              and real-world application.
+              TECHINS (Technologically Innovative Students) is an MSME-registered
+              EdTech and educational research organization focused on bridging
+              academics with real-world understanding.
             </p>
           </AnimatedSection>
 
@@ -32,7 +32,7 @@ const About = () => {
               <div className="relative">
                 <img
                   src={hero2}
-                  alt="TECHINS Learning Environment"
+                  alt="TECHINS learning environment"
                   className="rounded-2xl shadow-xl w-full"
                 />
                 <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-[#faa114]/30 rounded-full blur-3xl" />
@@ -40,28 +40,30 @@ const About = () => {
             </AnimatedSection>
 
             <AnimatedSection direction="right" className="space-y-6">
-              <h2 className="text-3xl font-bold">Welcome to TECHINS</h2>
+              <h2 className="text-3xl font-bold">Who We Are</h2>
               <p className="opacity-80 leading-relaxed">
-                TECHINS is a premier EdTech institution dedicated to providing
-                world-class technology education.
+                TECHINS operates at the foundational level of education, ensuring
+                students clearly understand why they study, how academic concepts
+                work in reality, and where learning leads in life and career.
               </p>
               <p className="opacity-80 leading-relaxed">
-                We offer industry-aligned programs that prepare students for
-                real-world challenges.
+                Unlike platforms that deliver disconnected information, TECHINS
+                follows a curriculum-first, clarity-driven approach that strengthens
+                both conceptual understanding and academic performance.
               </p>
 
               <div className="flex gap-8 pt-4">
                 <div>
-                  <p className="text-3xl font-bold text-[#faa114]">5+</p>
-                  <p className="text-sm opacity-70">Years of Excellence</p>
+                  <p className="text-3xl font-bold text-[#faa114]">1+</p>
+                  <p className="text-sm opacity-70">Years of Impact</p>
                 </div>
                 <div>
                   <p className="text-3xl font-bold text-[#faa114]">50+</p>
-                  <p className="text-sm opacity-70">Expert Mentors</p>
+                  <p className="text-sm opacity-70">Academic Mentors</p>
                 </div>
                 <div>
                   <p className="text-3xl font-bold text-[#faa114]">95%</p>
-                  <p className="text-sm opacity-70">Placement Rate</p>
+                  <p className="text-sm opacity-70">Learning Satisfaction</p>
                 </div>
               </div>
             </AnimatedSection>
@@ -83,8 +85,10 @@ const About = () => {
               </div>
               <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
               <p className="opacity-90 leading-relaxed">
-                To empower school students by connecting academic concepts with
-                real-world applications, innovation, and technology.
+                To connect textbook concepts with real-world use, improve conceptual
+                clarity alongside academic performance, and guide students toward
+                informed educational and career decisions through structured,
+                meaningful learning.
               </p>
             </motion.div>
           </AnimatedSection>
@@ -99,8 +103,9 @@ const About = () => {
               </div>
               <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
               <p className="opacity-90 leading-relaxed">
-                To build confident, creative, and responsible innovators from
-                an early age.
+                To build a generation of technologically innovative students who
+                learn with clarity, purpose, and confidence — understanding not
+                just what to study, but why they study.
               </p>
             </motion.div>
           </AnimatedSection>
@@ -113,10 +118,10 @@ const About = () => {
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-              Meet Our Founder
+              Founder’s Note
             </h2>
             <p className="opacity-80">
-              Visionary leadership driving innovation in education
+              Personal perspective behind TECHINS
             </p>
           </AnimatedSection>
 
@@ -126,7 +131,6 @@ const About = () => {
               className="max-w-md mx-auto bg-[#786e67] dark:bg-[#262a2b] text-white rounded-2xl p-8 text-center"
             >
 
-              {/* 🔽 REDUCED FOUNDER PHOTO */}
               <div className="flex justify-center mb-6">
                 <div className="w-56 h-56 rounded-full overflow-hidden border-4 border-[#faa114]/40">
                   <img
@@ -142,8 +146,9 @@ const About = () => {
                 Founder & CEO – TECHINS
               </p>
               <p className="opacity-80 text-sm mb-4">
-                Education-focused entrepreneur driving innovation
-                in technology-based learning.
+                Students study for years but often lack clarity about why they study
+                and how learning connects to life. TECHINS exists to solve that gap
+                by making education meaningful, practical, and empowering.
               </p>
 
               <div className="flex justify-center gap-3">
@@ -179,10 +184,10 @@ const About = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: "Excellence", icon: "⭐", desc: "We strive for the highest quality." },
-              { title: "Innovation", icon: "💡", desc: "We embrace modern teaching methods." },
-              { title: "Inclusivity", icon: "🤝", desc: "Education for everyone." },
-              { title: "Integrity", icon: "🛡️", desc: "Ethics and trust matter." },
+              { title: "Clarity", icon: "🔍", desc: "Understanding before memorization." },
+              { title: "Relevance", icon: "🔗", desc: "Learning connected to real life." },
+              { title: "Integrity", icon: "🛡️", desc: "Ethical and transparent education." },
+              { title: "Purpose", icon: "🎯", desc: "Education with direction and meaning." },
             ].map((v, i) => (
               <AnimatedSection key={i} delay={i * 0.1}>
                 <motion.div

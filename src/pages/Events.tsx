@@ -5,64 +5,68 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import EnrollModal from "@/components/ui/EnrollModal";
-import hero1 from "@/assets/hero-1.jpg";
-import hero2 from "@/assets/hero-2.jpg";
-import hero3 from "@/assets/hero-3.jpg";
+import hero1 from "@/assets/hero-1(e).jpg";
+import hero2 from "@/assets/hero-2(e).jpg";
+import hero3 from "@/assets/hero-3(e).jpg";
+import hero4 from "@/assets/hero-4(e).jpg";
+import hero5 from "@/assets/hero-5(e).jpg";
+import hero6 from "@/assets/hero-6(e).jpg";
 
 /* DATA – NO CHANGE */
 const onlineEvents = [
   {
     id: 1,
-    title: "Web Development Workshop",
-    date: "Jan 15, 2025",
-    time: "10:00 AM - 2:00 PM",
+    title: "IMPACT 360 – Online Learning Series",
+    // date: "Jan 15, 2025",
+    // time: "10:00 AM - 2:00 PM",
     image: hero1,
-    type: "Workshop",
+    type: "Online Series",
   },
   {
     id: 2,
-    title: "AI in 2025: Industry Trends",
-    date: "Jan 20, 2025",
-    time: "6:00 PM - 8:00 PM",
+    title: "Future Ready Virtual Program",
+    // date: "Jan 20, 2025",
+    // time: "6:00 PM - 8:00 PM",
     image: hero2,
-    type: "Webinar",
+    type: "Virtual Program",
   },
   {
     id: 3,
-    title: "Career in Cloud Computing",
-    date: "Jan 25, 2025",
-    time: "11:00 AM - 1:00 PM",
+    title: "SkillUp Live – Online Sessions",
+    // date: "Jan 25, 2025",
+    // time: "11:00 AM - 1:00 PM",
     image: hero3,
-    type: "Panel Discussion",
+    type: "Live Session",
   },
 ];
+
 
 const offlineEvents = [
   {
     id: 4,
-    title: "Tech Hackathon 2025",
-    date: "Feb 5-6, 2025",
-    time: "9:00 AM - 6:00 PM",
-    location: "TECHINS Campus, Silicon Valley",
-    image: hero2,
+    title: "Growth Lab – Onsite Edition",
+    // date: "Feb 5-6, 2025",
+    // time: "9:00 AM - 6:00 PM",
+    // location: "TECHINS Campus, Silicon Valley",
+    image: hero4,
     type: "Hackathon",
   },
   {
     id: 5,
-    title: "Data Science Bootcamp Launch",
-    date: "Feb 10, 2025",
-    time: "3:00 PM - 7:00 PM",
-    location: "Tech Hub Convention Center",
-    image: hero3,
+    title: "Student Elevation Day",
+    // date: "Feb 10, 2025",
+    // time: "3:00 PM - 7:00 PM",
+    // location: "Tech Hub Convention Center",
+    image: hero5,
     type: "Launch Event",
   },
   {
     id: 6,
-    title: "Alumni Networking Meet",
-    date: "Feb 15, 2025",
-    time: "5:00 PM - 9:00 PM",
-    location: "Grand Tech Hotel, Downtown",
-    image: hero1,
+    title: "The Knowledge Workshop",
+    // date: "Feb 15, 2025",
+    // time: "5:00 PM - 9:00 PM",
+    // location: "Grand Tech Hotel, Downtown",
+    image: hero6,
     type: "Networking",
   },
 ];
@@ -116,11 +120,11 @@ const Events = () => {
                       <div className="space-y-2 text-sm mb-4">
                         <div className="flex items-center gap-2">
                           <Calendar className="w-4 h-4 text-[#faa114]" />
-                          {event.date}
+                          {/* {event.date} */}
                         </div>
                         <div className="flex items-center gap-2">
                           <Clock className="w-4 h-4 text-[#faa114]" />
-                          {event.time}
+                          {/* {event.time} */}
                         </div>
                       </div>
 
@@ -160,15 +164,15 @@ const Events = () => {
                       <div className="space-y-2 text-sm mb-4">
                         <div className="flex items-center gap-2">
                           <Calendar className="w-4 h-4 text-[#faa114]" />
-                          {event.date}
+                          {/* {event.date} */}
                         </div>
                         <div className="flex items-center gap-2">
                           <Clock className="w-4 h-4 text-[#faa114]" />
-                          {event.time}
+                          {/* {event.time} */}
                         </div>
                         <div className="flex items-center gap-2">
                           <MapPin className="w-4 h-4 text-[#faa114]" />
-                          {event.location}
+                          {/* {event.location} */}
                         </div>
                       </div>
 
@@ -189,11 +193,14 @@ const Events = () => {
       </section>
 
       {/* MODAL */}
+      
       <EnrollModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        courseName={selectedEvent}
-      />
+  isOpen={isModalOpen}
+  onClose={() => setIsModalOpen(false)}
+  title={selectedEvent}
+  type="event"
+/>
+
     </Layout>
   );
 };
