@@ -8,7 +8,6 @@ import founderImg from "@/assets/founder.jpg";
 const About = () => {
   return (
     <Layout>
-
       {/* HERO SECTION */}
       <section className="py-20 bg-[#dbd7c7] dark:bg-[#b3aa9e] text-neutral-900 dark:text-neutral-100">
         <div className="container mx-auto px-4">
@@ -74,7 +73,6 @@ const About = () => {
       {/* MISSION & VISION */}
       <section className="py-20 bg-[#dbd7c7] dark:bg-[#b3aa9e] text-neutral-900 dark:text-neutral-100">
         <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8">
-
           <AnimatedSection direction="left">
             <motion.div
               whileHover={{ y: -4 }}
@@ -87,8 +85,7 @@ const About = () => {
               <p className="opacity-90 leading-relaxed">
                 To connect textbook concepts with real-world use, improve conceptual
                 clarity alongside academic performance, and guide students toward
-                informed educational and career decisions through structured,
-                meaningful learning.
+                informed educational and career decisions.
               </p>
             </motion.div>
           </AnimatedSection>
@@ -104,12 +101,10 @@ const About = () => {
               <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
               <p className="opacity-90 leading-relaxed">
                 To build a generation of technologically innovative students who
-                learn with clarity, purpose, and confidence — understanding not
-                just what to study, but why they study.
+                learn with clarity, purpose, and confidence.
               </p>
             </motion.div>
           </AnimatedSection>
-
         </div>
       </section>
 
@@ -120,9 +115,7 @@ const About = () => {
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
               Founder’s Note
             </h2>
-            <p className="opacity-80">
-              Personal perspective behind TECHINS
-            </p>
+            <p className="opacity-80">Personal perspective behind TECHINS</p>
           </AnimatedSection>
 
           <AnimatedSection>
@@ -130,7 +123,6 @@ const About = () => {
               whileHover={{ y: -8 }}
               className="max-w-md mx-auto bg-[#786e67] dark:bg-[#262a2b] text-white rounded-2xl p-8 text-center"
             >
-
               <div className="flex justify-center mb-6">
                 <div className="w-56 h-56 rounded-full overflow-hidden border-4 border-[#faa114]/40">
                   <img
@@ -142,32 +134,35 @@ const About = () => {
               </div>
 
               <h3 className="text-2xl font-bold mb-1">Siva K.K</h3>
-              <p className="text-[#faa114] mb-2">
-                Founder & CEO – TECHINS
-              </p>
+              <p className="text-[#faa114] mb-2">Founder & CEO – TECHINS</p>
+
               <p className="opacity-80 text-sm mb-4">
                 Students study for years but often lack clarity about why they study
-                and how learning connects to life. TECHINS exists to solve that gap
-                by making education meaningful, practical, and empowering.
+                and how learning connects to life. TECHINS exists to solve that gap.
               </p>
 
+              {/* SOCIAL LINKS */}
               <div className="flex justify-center gap-3">
                 <motion.a
-                  href="#"
+                  href="https://www.instagram.com/mr.k.k.siva?igsh=MW5mOGgwZm83YXp6aQ%3D%3D&utm_source=qr"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
                   className="p-3 rounded-full bg-[#faa114] hover:bg-[#e69510]"
                 >
                   <Instagram className="text-black" />
                 </motion.a>
+
                 <motion.a
-                  href="#"
+                  href="https://www.linkedin.com/in/siva-k-k-218b96360?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
                   className="p-3 rounded-full bg-[#faa114] hover:bg-[#e69510]"
                 >
                   <Linkedin className="text-black" />
                 </motion.a>
               </div>
-
             </motion.div>
           </AnimatedSection>
         </div>
@@ -195,19 +190,14 @@ const About = () => {
                   className="bg-[#786e67] dark:bg-[#262a2b] text-white rounded-xl p-6 text-center h-full"
                 >
                   <span className="text-4xl mb-4 block">{v.icon}</span>
-                  <h3 className="text-xl font-semibold mb-2">
-                    {v.title}
-                  </h3>
-                  <p className="text-sm opacity-80">
-                    {v.desc}
-                  </p>
+                  <h3 className="text-xl font-semibold mb-2">{v.title}</h3>
+                  <p className="text-sm opacity-80">{v.desc}</p>
                 </motion.div>
               </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
-
     </Layout>
   );
 };

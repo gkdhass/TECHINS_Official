@@ -9,6 +9,7 @@ import {
   Linkedin,
   Twitter,
   Facebook,
+  MessageCircle, // ✅ WhatsApp
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
@@ -38,7 +39,6 @@ const Footer = () => {
       { name: "Events", path: "/events" },
     ],
 
-    /* ✅ WORKING POPULAR COURSES */
     courses: [
       { name: "Foundation X", path: "/courses#foundation-x" },
       { name: "Applied Learning Lab", path: "/courses#applied-learning-lab" },
@@ -49,10 +49,31 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Facebook, href: "#", label: "Facebook" },
+    {
+      icon: Instagram,
+      href: "https://www.instagram.com/techins_official?igsh=d3dwMGFsaDd0NXo4&utm_source=qr",
+      label: "Instagram",
+    },
+    // {
+    //   icon: Linkedin,
+    //   href: "#",
+    //   label: "LinkedIn",
+    // },
+    // {
+    //   icon: Twitter,
+    //   href: "#",
+    //   label: "Twitter",
+    // },
+    {
+      icon: Facebook,
+      href: "https://www.facebook.com/share/185JhKfFmP/",
+      label: "Facebook",
+    },
+    {
+      icon: MessageCircle, 
+      href: "https://whatsapp.com/channel/0029Vb6w63i7NoZsxOXTML15",
+      label: "WhatsApp",
+    },
   ];
 
   return (
@@ -61,7 +82,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
           {/* BRAND */}
-          <motion.div className="space-y-4" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
+          <motion.div
+            className="space-y-4"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+          >
             <Link to="/">
               <Logo />
             </Link>
@@ -75,6 +100,8 @@ const Footer = () => {
                 <motion.a
                   key={s.label}
                   href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}
                   className="p-2 rounded-lg bg-white/20 text-white dark:bg-black/10 dark:text-black"
                 >
@@ -86,11 +113,16 @@ const Footer = () => {
 
           {/* QUICK LINKS */}
           <div>
-            <h4 className="font-semibold text-white dark:text-black mb-4">Quick Links</h4>
+            <h4 className="font-semibold text-white dark:text-black mb-4">
+              Quick Links
+            </h4>
             <ul className="space-y-3">
               {footerLinks.quickLinks.map((l) => (
                 <li key={l.name}>
-                  <Link to={l.path} className="text-white/90 dark:text-black hover:underline text-sm">
+                  <Link
+                    to={l.path}
+                    className="text-white/90 dark:text-black hover:underline text-sm"
+                  >
                     {l.name}
                   </Link>
                 </li>
@@ -98,9 +130,11 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* POPULAR COURSES (FIXED) */}
+          {/* POPULAR COURSES */}
           <div>
-            <h4 className="font-semibold text-white dark:text-black mb-4">Popular Courses</h4>
+            <h4 className="font-semibold text-white dark:text-black mb-4">
+              Popular Courses
+            </h4>
             <ul className="space-y-3">
               {footerLinks.courses.map((c) => (
                 <li key={c.name}>
@@ -117,7 +151,9 @@ const Footer = () => {
 
           {/* CONTACT */}
           <div>
-            <h4 className="font-semibold text-white dark:text-black mb-4">Contact Us</h4>
+            <h4 className="font-semibold text-white dark:text-black mb-4">
+              Contact Us
+            </h4>
             <ul className="space-y-3 text-sm text-white/90 dark:text-black">
               <li className="flex gap-3">
                 <MapPin className="w-4 h-4 mt-1" />
@@ -125,7 +161,9 @@ const Footer = () => {
               </li>
               <li className="flex gap-3">
                 <Mail className="w-4 h-4" />
-                <a href="mailto:techins.ceo@gmail.com">techins.ceo@gmail.com</a>
+                <a href="mailto:techins.ceo@gmail.com">
+                  techins.ceo@gmail.com
+                </a>
               </li>
               <li className="flex gap-3">
                 <Phone className="w-4 h-4" />
