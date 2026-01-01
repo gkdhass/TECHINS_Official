@@ -35,7 +35,7 @@ const sectionVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 1.2,           
+      duration: 1.2,           // ⏳ slower
       ease: "easeInOut",
     },
   },
@@ -46,7 +46,7 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.3,    
+      staggerChildren: 0.3,    // ⏳ slower stagger
     },
   },
 };
