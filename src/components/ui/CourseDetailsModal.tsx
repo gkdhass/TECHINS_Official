@@ -1,6 +1,23 @@
 import { motion, AnimatePresence } from "framer-motion";
 
-const CourseDetailsModal = ({ isOpen, onClose, course }: any) => {
+interface CourseDetails {
+  title: string;
+  image: string;
+  mode?: string;
+  duration?: string;
+  classLevel?: string;
+  language?: string;
+  amount?: string;
+  description?: string;
+}
+
+interface Props {
+  isOpen: boolean;
+  onClose: () => void;
+  course: CourseDetails | null;
+}
+
+const CourseDetailsModal = ({ isOpen, onClose, course }: Props) => {
   if (!course) return null;
 
   return (
@@ -18,36 +35,57 @@ const CourseDetailsModal = ({ isOpen, onClose, course }: any) => {
             animate={{ scale: 1 }}
             exit={{ scale: 0.9 }}
           >
-            {/* Title */}
-            <h2 className="text-2xl font-bold mb-2 text-black dark:text-white">
+            {/* TITLE */}
+            <h2 className="text-2xl font-bold mb-3 text-black dark:text-white">
               {course.title}
             </h2>
 
-            {/* Image */}
+            {/* IMAGE */}
             <img
               src={course.image}
               alt={course.title}
               className="rounded-lg mb-4 w-full h-48 object-cover"
             />
 
-            {/* Course Info */}
-            <ul className="space-y-2 text-sm opacity-90 text-black dark:text-gray-300">
-              <li><strong>Duration:</strong> {course.duration}</li>
-              <li><strong>Language:</strong> {course.language}</li>
-              <li><strong>Price:</strong> {course.price}</li>
+            {/* INFO */}
+            <ul className="space-y-2 text-sm text-black dark:text-gray-300">
+              {course.mode && (
+                <li>
+                  <strong>Mode:</strong> {course.mode}
+                </li>
+              )}
+              {course.duration && (
+                <li>
+                  <strong>Duration:</strong> {course.duration}
+                </li>
+              )}
+              {course.classLevel && (
+                <li>
+                  <strong>Class Level:</strong> {course.classLevel}
+                </li>
+              )}
+              {course.language && (
+                <li>
+                  <strong>Language:</strong> {course.language}
+                </li>
+              )}
+              {course.amount && (
+                <li>
+                  <strong>Amount:</strong> {course.amount}
+                </li>
+              )}
             </ul>
 
-            {/* UPDATED DESCRIPTION */}
+            {/* DESCRIPTION */}
             <p className="mt-4 text-sm opacity-80 text-black dark:text-gray-400">
-              {course.description
-                ? course.description
-                : "Hands-on learning with real-world projects and expert mentor guidance."}
+              {course.description ||
+                "Hands-on learning with practical guidance and real-world understanding."}
             </p>
 
-            {/* Close Button */}
+            {/* CLOSE */}
             <button
               onClick={onClose}
-              className="mt-6 w-full py-2 rounded-lg bg-[#faa114] text-black font-semibold"
+              className="mt-6 w-full py-2 rounded-lg bg-[#faa114] text-black font-semibold hover:opacity-90 transition"
             >
               Close
             </button>
