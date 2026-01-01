@@ -38,13 +38,12 @@ const Footer = () => {
       { name: "Courses", path: "/courses" },
       { name: "Events", path: "/events" },
     ],
-
     courses: [
-      { name: "Foundation X", path: "/courses#foundation-x" },
-      { name: "Applied Learning Lab", path: "/courses#applied-learning-lab" },
-      { name: "Exam Ready", path: "/courses#exam-ready" },
       { name: "Concept → Clarity", path: "/courses#concept-clarity" },
+      { name: "Applied Learning Lab", path: "/courses#applied-learning-lab" },
       { name: "Future Map", path: "/courses#future-map" },
+      { name: "Exam Ready", path: "/courses#exam-ready" },
+      { name: "Foundation X", path: "/courses#foundation-x" },
     ],
   };
 
