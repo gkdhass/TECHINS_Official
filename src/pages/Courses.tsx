@@ -33,7 +33,7 @@ const workshops = [
     amount: "₹299",
     language: "English",
     description:
-      "This innovation and creativity focused workshop helps students unlock their creative potential...",
+      "This innovation and creativity focused workshop helps students unlock their creative potential and think beyond traditional boundaries.Participants learn practical idea-generation techniques, problem-solving frameworks, and creative thinking methods used in real-world projects.The session encourages curiosity, experimentation, and collaboration through engaging activities and challenges.Students gain confidence to transform ideas into impactful solutions.This workshop is ideal for building an innovative mindset essential for future careers and startups.",
   },
   {
     id: 102,
@@ -45,7 +45,7 @@ const workshops = [
     amount: "₹199",
     language: "English",
     description:
-      "This practical science workshop connects classroom concepts with real-life experiences...",
+      "This practical science workshop connects classroom concepts with real-life experiences through hands-on learning.Students explore scientific principles using experiments, demonstrations, and interactive activities.The workshop helps improve understanding by applying theory to everyday situations.It encourages curiosity, critical thinking, and problem-solving skills.Learners gain a deeper interest in science by experiencing how it works in the real world.",
   },
   {
     id: 103,
@@ -57,7 +57,7 @@ const workshops = [
     amount: "₹199",
     language: "English",
     description:
-      "This career awareness workshop helps students explore their interests and personal strengths...",
+      "This career awareness workshop helps students explore their interests, strengths, and career possibilities. It introduces various career paths, industries, and emerging opportunities. Students gain clarity about skills required for different roles and future trends. The session encourages self-reflection and informed decision-making. Participants leave with better confidence to plan their academic and career journey.",
   },
   {
     id: 104,
@@ -69,7 +69,7 @@ const workshops = [
     amount: "₹499",
     language: "English",
     description:
-      "This confidence building and communication skills program helps students develop a strong personality...",
+      "This confidence and communication program helps students develop a strong personality and self-belief.It focuses on improving speaking skills, body language, and effective expression.Students learn to communicate clearly in academic, professional, and social settings.The program encourages active participation and confidence building activities.Participants gain the skills needed to present ideas with clarity and impact.",
   },
 ];
 
@@ -81,11 +81,11 @@ const onlineCourses = [
     image: courseWeb1,
     mode: "Online",
     duration: "3 Months",
-    classLevel: "6th–12th / 6th–9th / 10th–12th",
+    classLevel: "6th–12th",
     amount: "₹1,999 / ₹3,999",
     language: "English",
     description:
-      "This online course is designed to help students clearly understand their school syllabus concepts...",
+      "Designed to help students clearly understand their school syllabus concepts through structured and engaging learning.The program simplifies complex topics using practical examples and explanations.It strengthens core fundamentals and improves subject clarity.Students gain better confidence in exams and daily classroom learning.The approach encourages consistent understanding rather than rote memorization.",
   },
   {
     id: 202,
@@ -97,7 +97,7 @@ const onlineCourses = [
     amount: "₹999",
     language: "English",
     description:
-      "This online guidance course helps students discover their interests and personal strengths...",
+      "GThis guidance course helps students discover their interests, strengths, and career direction.It provides clarity on academic choices and future career paths.Students learn how their skills align with different industries and roles.The course encourages self-awareness and goal setting.Participants gain confidence to make informed decisions about their future.",
   },
 ];
 
@@ -113,7 +113,7 @@ const offlineCourses = [
     amount: "₹2,999",
     language: "English",
     description:
-      "This foundation course focuses on building strong basics in Science and Mathematics...",
+      "Builds strong fundamentals in Science and Mathematics through clear explanations and practical learning.The program focuses on core concepts to improve understanding and application.Students develop logical thinking and problem-solving skills.It helps reduce fear of complex topics by simplifying concepts.Learners gain confidence for exams and higher-level studies.",
   },
   {
     id: 302,
@@ -125,7 +125,7 @@ const offlineCourses = [
     amount: "₹1,999",
     language: "English",
     description:
-      "This academic improvement program is designed to boost students’ exam performance...",
+      "Designed to boost academic and exam performance through focused learning strategies.The program helps students improve understanding, accuracy, and speed.It covers important concepts, practice methods, and exam techniques.Students learn time management and smart revision approaches.This results in better confidence and consistent academic improvement.",
   },
   {
     id: 303,
@@ -137,7 +137,7 @@ const offlineCourses = [
     amount: "₹2,999",
     language: "English",
     description:
-      "This hands-on program helps students apply theoretical concepts to real-world situations...",
+      "This hands-on program connects theory with real-world applications through practical learning.Students apply concepts using activities, experiments, and real-life examples.It strengthens understanding by moving beyond textbook knowledge.The program encourages curiosity, exploration, and problem-solving.Learners gain skills that are useful in academics and everyday life.",
   },
   {
     id: 304,
@@ -149,7 +149,7 @@ const offlineCourses = [
     amount: "₹2,499",
     language: "English",
     description:
-      "This short-term revision program is designed for effective final exam preparation...",
+      "This short-term revision program is designed for effective final exam preparation.It focuses on important concepts, key formulas, and frequently asked questions.Students revise topics quickly with clear explanations and guided practice.The program helps improve accuracy, confidence, and exam readiness.Ideal for last-stage preparation before final examinations.",
   },
   {
     id: 305,
@@ -161,7 +161,7 @@ const offlineCourses = [
     amount: "₹2,999",
     language: "English",
     description:
-      "This one-to-one mentorship program provides personalized academic and career guidance...",
+      "This one-to-one mentorship program provides personalized academic and career guidance.Students receive individual attention based on their goals and strengths.Mentors help clarify doubts, plan studies, and explore career options.The program supports confident decision-making and long-term planning.Learners benefit from focused guidance and continuous motivation.",
   },
 ];
 
@@ -176,6 +176,16 @@ const Courses = () => {
     data.filter((item) =>
       item.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
+
+  const handleEnroll = (title: string) => {
+    setSelectedCourse(title);
+    setIsEnrollOpen(true);
+  };
+
+  const handleViewDetails = (course: any) => {
+    setSelectedDetails(course);
+    setIsDetailsOpen(true);
+  };
 
   return (
     <Layout>
@@ -207,18 +217,24 @@ const Courses = () => {
             title="Workshops"
             icon={<Users className="text-[#fa9a02]" />}
             data={filterData(workshops)}
+            onEnroll={handleEnroll}
+            onViewDetails={handleViewDetails}
           />
 
           <CourseSection
             title="Offline Courses"
             icon={<Users className="text-[#fa9a02]" />}
             data={filterData(offlineCourses)}
+            onEnroll={handleEnroll}
+            onViewDetails={handleViewDetails}
           />
 
           <CourseSection
             title="Online Courses"
             icon={<Monitor className="text-[#fa9a02]" />}
             data={filterData(onlineCourses)}
+            onEnroll={handleEnroll}
+            onViewDetails={handleViewDetails}
           />
         </div>
       </section>
@@ -239,7 +255,13 @@ const Courses = () => {
   );
 };
 
-const CourseSection = ({ title, icon, data }: any) => (
+const CourseSection = ({
+  title,
+  icon,
+  data,
+  onEnroll,
+  onViewDetails,
+}: any) => (
   <div className="mb-20">
     <AnimatedSection className="flex items-center gap-3 mb-8">
       {icon}
@@ -253,7 +275,11 @@ const CourseSection = ({ title, icon, data }: any) => (
           whileHover={{ y: -8 }}
           className="bg-[#786e67] dark:bg-[#1a1d1f] rounded-xl"
         >
-          <CourseCard {...item} />
+          <CourseCard
+            {...item}
+            onEnroll={() => onEnroll(item.title)}
+            onMore={() => onViewDetails(item)}
+          />
         </motion.div>
       ))}
     </div>
