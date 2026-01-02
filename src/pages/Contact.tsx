@@ -234,7 +234,7 @@ const Contact = () => {
 
               <div className="bg-[#786e67] dark:bg-[#1a1d1f] rounded-2xl p-5 sm:p-6 space-y-2 text-sm text-white">
                 <p className="flex items-center gap-2"><Mail size={16} /> techins2024@gmail.com</p>
-                <p className="flex items-center gap-2"><Phone size={16} /> +91 123456789</p>
+                <p className="flex items-center gap-2"><Phone size={16} /> +91 63831 48233</p>
                 <p className="flex items-center gap-2"><MapPin size={16} /> Kodikkal Street, Lalapettai, Karur, Tamil Nadu – 639105</p>
               </div>
 
