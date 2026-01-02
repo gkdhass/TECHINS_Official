@@ -81,19 +81,64 @@ const Index = () => {
       title: "Curriculum-Aligned Learning",
       description:
         "Structured learning that strictly follows curriculum standards while improving understanding.",
-      icon: <div className="text-[#fa9a02] font-bold text-xl">01</div>,
+      icon: (
+        <svg
+          width="36"
+          height="36"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#fa9a02"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+          <path d="M4 4v15.5" />
+          <path d="M20 4v15.5" />
+          <path d="M6.5 4H20" />
+        </svg>
+      ),
     },
     {
       title: "Marks with Conceptual Clarity",
       description:
         "Strong fundamentals that improve exam performance with genuine understanding.",
-      icon: <div className="text-[#fa9a02] font-bold text-xl">02</div>,
+      icon: (
+        <svg
+          width="36"
+          height="36"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#fa9a02"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M12 20l9-5-9-5-9 5 9 5z" />
+          <path d="M12 12l9-5-9-5-9 5 9 5z" />
+        </svg>
+      ),
     },
     {
       title: "Real-World Application Focus",
       description:
         "Connecting classroom concepts with practical, real-life applications.",
-      icon: <div className="text-[#fa9a02] font-bold text-xl">03</div>,
+      icon: (
+        <svg
+          width="36"
+          height="36"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#fa9a02"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <circle cx="12" cy="12" r="10" />
+          <path d="M2 12h20" />
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+        </svg>
+      ),
     },
   ];
 
@@ -101,9 +146,13 @@ const Index = () => {
     <Layout>
       {/* ================= HERO ================= */}
       <section className="min-h-[90vh] flex items-center py-12 bg-[#fffcf2] dark:bg-[#00030d] text-[#3f3f39] dark:text-white">
-        <motion.div variants={sectionVariants} initial="hidden" animate="visible" className="container mx-auto px-4">
+        <motion.div
+          variants={sectionVariants}
+          initial="hidden"
+          animate="visible"
+          className="container mx-auto px-4"
+        >
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-
             {/* LEFT */}
             <div className="space-y-6">
               <motion.span
@@ -114,20 +163,33 @@ const Index = () => {
                 Curriculum-Aligned EdTech Platform
               </motion.span>
 
-              <motion.h1 custom={1} variants={textRevealVariants} className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <motion.h1
+                custom={1}
+                variants={textRevealVariants}
+                className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+              >
                 Connecting Education with{" "}
                 <span className="text-[#fa9a02]">Reality</span>
               </motion.h1>
 
-              <motion.p custom={2} variants={textRevealVariants} className="text-lg max-w-lg opacity-80">
+              <motion.p
+                custom={2}
+                variants={textRevealVariants}
+                className="text-lg max-w-lg opacity-80"
+              >
                 Curriculum-aligned learning that builds clarity, confidence,
                 and real-world understanding.
               </motion.p>
 
-              <motion.div custom={3} variants={textRevealVariants} className="flex gap-4 flex-wrap">
+              <motion.div
+                custom={3}
+                variants={textRevealVariants}
+                className="flex gap-4 flex-wrap"
+              >
                 <Button asChild size="lg" className="bg-[#fa9a02] text-[#3f3f39]">
                   <Link to="/courses">
-                    Explore Our Approach <ChevronRight className="ml-2 w-4 h-4" />
+                    Explore Our Approach{" "}
+                    <ChevronRight className="ml-2 w-4 h-4" />
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline">
@@ -146,18 +208,34 @@ const Index = () => {
 
       {/* ================= WHY TECHINS ================= */}
       <section className="py-20 bg-[#fffcf2] dark:bg-[#00030d] text-[#3f3f39] dark:text-white">
-        <motion.div variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="container mx-auto px-4">
+        <motion.div
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="container mx-auto px-4"
+        >
           <AnimatedSection className="text-center max-w-2xl mx-auto mb-12">
-            <motion.h2 custom={0} variants={textRevealVariants} className="text-3xl lg:text-4xl font-bold mb-4">
+            <motion.h2
+              custom={0}
+              variants={textRevealVariants}
+              className="text-3xl lg:text-4xl font-bold mb-4"
+            >
               Why <span className="text-[#fa9a02]">TECHINS</span> ?
             </motion.h2>
-            <motion.p custom={1} variants={textRevealVariants} className="opacity-80">
+            <motion.p
+              custom={1}
+              variants={textRevealVariants}
+              className="opacity-80"
+            >
               Designed around how students actually learn — clarity over memorization.
             </motion.p>
           </AnimatedSection>
 
-          {/* CARDS */}
-          <motion.div variants={containerVariants} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div
+            variants={containerVariants}
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
             {features.map((item, index) => (
               <motion.div
                 key={index}
@@ -169,12 +247,8 @@ const Index = () => {
                 <motion.div variants={iconVariants} className="mb-4">
                   {item.icon}
                 </motion.div>
-                <motion.h3 variants={textRevealVariants} className="text-xl font-semibold mb-2">
-                  {item.title}
-                </motion.h3>
-                <motion.p variants={textRevealVariants} className="opacity-90 text-sm">
-                  {item.description}
-                </motion.p>
+                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                <p className="opacity-90 text-sm">{item.description}</p>
               </motion.div>
             ))}
           </motion.div>
