@@ -159,11 +159,3 @@ Events
 Contact information  
 Smooth scroll-to-top button  
 
----
-
-## Responsiveness
-
-Fully optimized for  
-Desktop  
-Tablet  
-Mobile devices
