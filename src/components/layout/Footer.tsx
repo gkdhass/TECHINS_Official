@@ -6,13 +6,24 @@ import {
   Phone,
   ArrowUp,
   Instagram,
-  Linkedin,
-  Twitter,
   Facebook,
-  MessageCircle, // ✅ WhatsApp
+  MessageCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
+
+/* ================= X ICON ================= */
+const XIcon = ({ size = 20 }: { size?: number }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M18.244 2H21.552L14.378 10.193L22.824 22H16.264L11.13 14.927L4.93 22H1.62L9.3 13.22L1.176 2H7.904L12.55 8.393L18.244 2ZM17.083 20.013H18.914L6.89 3.882H4.924L17.083 20.013Z" />
+  </svg>
+);
 
 /* ================= LOGO ================= */
 const Logo = () => {
@@ -47,21 +58,17 @@ const Footer = () => {
     ],
   };
 
+  /* ================= SOCIAL LINKS ================= */
   const socialLinks = [
     {
       icon: Instagram,
-      href: "https://www.instagram.com/techins_official?igsh=d3dwMGFsaDd0NXo4&utm_source=qr",
+      href: "https://www.instagram.com/techins_official",
       label: "Instagram",
     },
     // {
-    //   icon: Linkedin,
-    //   href: "#",
-    //   label: "LinkedIn",
-    // },
-    // {
-    //   icon: Twitter,
-    //   href: "#",
-    //   label: "Twitter",
+    //   icon: XIcon, 
+    //   href: "https://x.com/",
+    //   label: "X",
     // },
     {
       icon: Facebook,
@@ -69,7 +76,7 @@ const Footer = () => {
       label: "Facebook",
     },
     {
-      icon: MessageCircle, 
+      icon: MessageCircle,
       href: "https://whatsapp.com/channel/0029Vb6w63i7NoZsxOXTML15",
       label: "WhatsApp",
     },
@@ -78,6 +85,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#786e67] dark:bg-[#c4bfb2]">
       <div className="container mx-auto px-4 py-12 lg:py-16">
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
           {/* BRAND */}
@@ -104,7 +112,7 @@ const Footer = () => {
                   whileHover={{ scale: 1.1 }}
                   className="p-2 rounded-lg bg-white/20 text-white dark:bg-black/10 dark:text-black"
                 >
-                  <s.icon className="w-5 h-5" />
+                  <s.icon size={20} />
                 </motion.a>
               ))}
             </div>
@@ -156,7 +164,7 @@ const Footer = () => {
             <ul className="space-y-3 text-sm text-white/90 dark:text-black">
               <li className="flex gap-3">
                 <MapPin className="w-4 h-4 mt-1" />
-                Kodikkal Street, Lalapettai, Karur, <br />  
+                Kodikkal Street, Lalapettai, Karur, <br />
                 Tamil Nadu – 639105
               </li>
               <li className="flex gap-3">
@@ -171,6 +179,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
+
         </div>
 
         {/* BOTTOM */}
@@ -188,6 +197,7 @@ const Footer = () => {
             <ArrowUp className="w-4 h-4" />
           </Button>
         </div>
+
       </div>
     </footer>
   );

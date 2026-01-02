@@ -145,16 +145,27 @@ const About = () => {
                 and how learning connects to life. TECHINS exists to solve that gap.
               </p>
 
+              {/* UPDATED SOCIAL LINKS */}
               <div className="flex justify-center gap-3">
-                {[Instagram, Linkedin].map((Icon, i) => (
-                  <motion.a
-                    key={i}
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    className="p-3 rounded-full bg-[#fa9a02] text-black"
-                  >
-                    <Icon />
-                  </motion.a>
-                ))}
+                <motion.a
+                  href="https://www.instagram.com/mr.k.k.siva?igsh=MW5mOGgwZm83YXp6aQ%3D%3D&utm_source=qr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  className="p-3 rounded-full bg-[#fa9a02] text-black"
+                >
+                  <Instagram />
+                </motion.a>
+
+                <motion.a
+                  href="https://www.linkedin.com/in/siva-k-k-218b96360?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  className="p-3 rounded-full bg-[#fa9a02] text-black"
+                >
+                  <Linkedin />
+                </motion.a>
               </div>
             </motion.div>
           </AnimatedSection>
