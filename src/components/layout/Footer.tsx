@@ -156,7 +156,8 @@ const Footer = () => {
             <ul className="space-y-3 text-sm text-white/90 dark:text-black">
               <li className="flex gap-3">
                 <MapPin className="w-4 h-4 mt-1" />
-                Kodikkal Street, Lalapettai, Karur,   Tamil Nadu – 639105
+                Kodikkal Street, Lalapettai, Karur,   
+                Tamil Nadu – 639105
               </li>
               <li className="flex gap-3">
                 <Mail className="w-4 h-4" />
