@@ -5,34 +5,18 @@ import {
   Mail,
   Phone,
   MapPin,
-  Send,
   Loader2,
   CheckCircle,
   Instagram,
-  Linkedin,
   Facebook,
   MessageCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import AnimatedSection from "@/components/ui/AnimatedSection";
-
-/* ================= X ICON ================= */
-const XIcon = ({ size = 18 }: { size?: number }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path d="M18.244 2H21.552L14.378 10.193L22.824 22H16.264L11.13 14.927L4.93 22H1.62L9.3 13.22L1.176 2H7.904L12.55 8.393L18.244 2ZM17.083 20.013H18.914L6.89 3.882H4.924L17.083 20.013Z"/>
-  </svg>
-);
 
 const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -114,26 +98,11 @@ const Contact = () => {
     { name: "Events", path: "/events" },
   ];
 
-  /* ================= SOCIAL LINKS ================= */
   const socialLinks = [
+    { icon: Instagram, href: "https://www.instagram.com/techins_official" },
+    { icon: Facebook, href: "https://www.facebook.com/share/185JhKfFmP/" },
     {
-      icon: Instagram,
-      href: "https://www.instagram.com/techins_official",
-    },
-    // {
-    //   icon: Linkedin,
-    //   href: "#",
-    // },
-    // {
-    //   icon: XIcon, 
-    //   href: "https://x.com/",
-    // },
-    {
-      icon: Facebook,
-      href: "https://www.facebook.com/share/185JhKfFmP/",
-    },
-    {
-      icon: MessageCircle, // WhatsApp
+      icon: MessageCircle,
       href: "https://whatsapp.com/channel/0029Vb6w63i7NoZsxOXTML15",
     },
   ];
@@ -143,6 +112,7 @@ const Contact = () => {
       <section className="py-16 bg-[#fffcf2] dark:bg-[#00030d]">
         <div className="container mx-auto px-4">
 
+          {/* HEADER */}
           <AnimatedSection className="text-center max-w-3xl mx-auto mb-14">
             <span className="inline-block px-4 py-2 bg-[#fa9a02]/10 text-[#fa9a02] rounded-full text-sm font-medium mb-4">
               Contact Us
@@ -160,6 +130,7 @@ const Contact = () => {
             {/* FORM */}
             <AnimatedSection direction="left">
               <div className="bg-[#786e67] dark:bg-[#1a1d1f] rounded-2xl p-8 text-white">
+
                 {isSuccess ? (
                   <div className="text-center py-10">
                     <CheckCircle className="w-14 h-14 text-green-500 mx-auto mb-4" />
@@ -167,23 +138,73 @@ const Contact = () => {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
+
+                    {/* BUTTON SWITCH */}
+                    <div className="flex gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setIsInternship(false)}
+                        className={`px-4 py-2 rounded-full text-sm font-medium transition
+                          ${
+                            !isInternship
+                              ? "bg-[#fa9a02] text-black"
+                              : "bg-white/20 text-white"
+                          }`}
+                      >
+                        Contact
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setIsInternship(true)}
+                        className={`px-4 py-2 rounded-full text-sm font-medium transition
+                          ${
+                            isInternship
+                              ? "bg-[#fa9a02] text-black"
+                              : "bg-white/20 text-white"
+                          }`}
+                      >
+                        Internship
+                      </button>
+                    </div>
+
                     <div className="grid md:grid-cols-2 gap-4">
                       <Input name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange} required />
                       <Input name="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleChange} required />
                     </div>
+
                     <Input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
                     <Input type="tel" name="phone" placeholder="Phone" value={formData.phone} onChange={handleChange} required />
-                    <Textarea name="message" rows={4} placeholder="Message" value={formData.message} onChange={handleChange} required />
+
+                    {isInternship && (
+                      <>
+                        <Input name="college" placeholder="College Name" value={formData.college} onChange={handleChange} required />
+                        <Input name="degree" placeholder="Degree / Department" value={formData.degree} onChange={handleChange} required />
+                        <Input name="year" placeholder="Year of Study" value={formData.year} onChange={handleChange} required />
+                        <Input name="role" placeholder="Interested Role" value={formData.role} onChange={handleChange} required />
+                      </>
+                    )}
+
+                    <Textarea
+                      name="message"
+                      rows={4}
+                      placeholder={isInternship ? "Why do you want this internship?" : "Your Message"}
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                    />
+
                     <Button type="submit" disabled={isLoading} className="w-full bg-[#fa9a02] text-black">
-                      {isLoading ? <Loader2 className="animate-spin" /> : "Send Message"}
+                      {isLoading ? <Loader2 className="animate-spin" /> : isInternship ? "Apply Internship" : "Send Message"}
                     </Button>
                   </form>
                 )}
               </div>
             </AnimatedSection>
 
-            {/* INFO */}
+            {/* INFO + MAP */}
             <AnimatedSection direction="right" className="space-y-6">
+
+              {/* QUICK LINKS */}
               <div className="bg-[#786e67] dark:bg-[#1a1d1f] rounded-2xl p-6 text-white">
                 <h3 className="font-semibold mb-4">Quick Links</h3>
                 <ul className="space-y-2 text-sm">
@@ -195,19 +216,33 @@ const Contact = () => {
                 </ul>
               </div>
 
-              <div className="bg-[#786e67] dark:bg-[#1a1d1f] rounded-2xl p-6 text-white space-y-2 text-sm">
+              {/* CONTACT INFO */}
+              <div className="bg-[#786e67] dark:bg-[#1a1d1f] rounded-2xl p-6 text-white text-sm space-y-2">
                 <p className="flex items-center gap-2"><Mail size={16}/> techins2024@gmail.com</p>
                 <p className="flex items-center gap-2"><Phone size={16}/> +91 63831 48233</p>
-                <p className="flex items-center gap-2"><MapPin size={16}/> Kodikkal Street, Lalapettai, Karur, Tamil Nadu – 639105</p>
+                <p className="flex items-center gap-2">
+                  <MapPin size={16}/> Kodikkal Street, Lalapettai, Karur – 639105
+                </p>
               </div>
 
+              {/* 🗺️ MAP */}
+              <div className="bg-[#786e67] dark:bg-[#1a1d1f] rounded-2xl overflow-hidden">
+                <iframe
+                  title="TECHINS Location"
+                  src="https://www.google.com/maps?q=Kodikkal%20Street%20Lalapettai%20Karur&output=embed"
+                  className="w-full h-64 border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+
+              {/* SOCIAL */}
               <div className="flex gap-3">
                 {socialLinks.map((s, i) => (
                   <motion.a
                     key={i}
                     href={s.href}
                     target="_blank"
-                    rel="noopener noreferrer"
                     whileHover={{ scale: 1.1 }}
                     className="p-3 rounded-lg bg-[#fffcf2] dark:bg-[#00030d] text-[#fa9a02]"
                   >
@@ -215,8 +250,8 @@ const Contact = () => {
                   </motion.a>
                 ))}
               </div>
-            </AnimatedSection>
 
+            </AnimatedSection>
           </div>
         </div>
       </section>
