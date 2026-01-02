@@ -13,7 +13,6 @@ import hero3 from "@/assets/hero-3.jpg";
 
 /* ================= ANIMATIONS ================= */
 
-/* 🔹 Slower text reveal */
 const textRevealVariants = {
   hidden: { opacity: 0, y: 32, filter: "blur(8px)" },
   visible: (i: number) => ({
@@ -21,66 +20,47 @@ const textRevealVariants = {
     y: 0,
     filter: "blur(0px)",
     transition: {
-      delay: i * 0.2,          // ⏳ slower stagger
-      duration: 1.1,           // ⏳ slower animation
+      delay: i * 0.2,
+      duration: 1.1,
       ease: [0.25, 0.46, 0.45, 0.94],
     },
   }),
 };
 
-/* 🔹 Slower section entry */
 const sectionVariants = {
   hidden: { opacity: 0, y: 60 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 1.2,           // ⏳ slower
-      ease: "easeInOut",
-    },
+    transition: { duration: 1.2, ease: "easeInOut" },
   },
 };
 
-/* 🔹 Slower stagger */
 const containerVariants = {
   hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.3,    // ⏳ slower stagger
-    },
-  },
+  visible: { transition: { staggerChildren: 0.3 } },
 };
 
-/* 🔹 Slower cards */
 const cardVariants = {
   hidden: { opacity: 0, y: 50, scale: 0.94 },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: {
-      duration: 1.0,           // ⏳ slower
-      ease: "easeOut",
-    },
+    transition: { duration: 1.0, ease: "easeOut" },
   },
 };
 
-/* 🔹 Slower icon pop */
 const iconVariants = {
   hidden: { scale: 0, rotate: -20 },
   visible: {
     scale: 1,
     rotate: 0,
-    transition: {
-      type: "spring",
-      stiffness: 120,          // ⏳ softer spring
-      damping: 16,
-    },
+    transition: { type: "spring", stiffness: 120, damping: 16 },
   },
 };
 
 const Index = () => {
-  /* ================= MOBILE DETECTION (unchanged) ================= */
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -91,9 +71,9 @@ const Index = () => {
   }, []);
 
   const heroImages = [
-    <img key="1" src={hero1} alt="Curriculum aligned learning" className="w-full h-full object-cover" />,
-    <img key="2" src={hero2} alt="Concept based education" className="w-full h-full object-cover" />,
-    <img key="3" src={hero3} alt="Real world learning" className="w-full h-full object-cover" />,
+    <img key="1" src={hero1} className="w-full h-full object-cover" />,
+    <img key="2" src={hero2} className="w-full h-full object-cover" />,
+    <img key="3" src={hero3} className="w-full h-full object-cover" />,
   ];
 
   const features = [
@@ -101,69 +81,42 @@ const Index = () => {
       title: "Curriculum-Aligned Learning",
       description:
         "Structured learning that strictly follows curriculum standards while improving understanding.",
-      icon: (
-        <svg viewBox="0 0 64 64" className="w-10 h-10 text-white">
-          <path d="M6 14c0-1.7 1.3-3 3-3h21v42H9c-1.7 0-3-1.3-3-3V14z"
-            fill="none" stroke="currentColor" strokeWidth="2" />
-          <path d="M58 14c0-1.7-1.3-3-3-3H34v42h21c1.7 0 3-1.3 3-3V14z"
-            fill="none" stroke="currentColor" strokeWidth="2" />
-          <circle cx="40" cy="22" r="2" fill="currentColor" />
-          <circle cx="40" cy="30" r="2" fill="currentColor" />
-          <circle cx="40" cy="38" r="2" fill="currentColor" />
-        </svg>
-      ),
+      icon: <div className="text-[#fa9a02] font-bold text-xl">01</div>,
     },
     {
       title: "Marks with Conceptual Clarity",
       description:
         "Strong fundamentals that improve exam performance with genuine understanding.",
-      icon: (
-        <svg viewBox="0 0 64 64" className="w-10 h-10 text-white">
-          <circle cx="32" cy="28" r="12"
-            fill="none" stroke="currentColor" strokeWidth="2" />
-          <path d="M24 28h16M32 20v16"
-            stroke="currentColor" strokeWidth="2" />
-          <path d="M22 44l6-4h8l6 4"
-            fill="none" stroke="currentColor" strokeWidth="2" />
-        </svg>
-      ),
+      icon: <div className="text-[#fa9a02] font-bold text-xl">02</div>,
     },
     {
       title: "Real-World Application Focus",
       description:
         "Connecting classroom concepts with practical, real-life applications.",
-      icon: (
-        <svg viewBox="0 0 64 64" className="w-10 h-10 text-white">
-          <rect x="10" y="18" width="44" height="28" rx="4"
-            fill="none" stroke="currentColor" strokeWidth="2" />
-          <path d="M22 46v6M42 46v6"
-            stroke="currentColor" strokeWidth="2" />
-          <circle cx="32" cy="32" r="6"
-            fill="none" stroke="currentColor" strokeWidth="2" />
-        </svg>
-      ),
+      icon: <div className="text-[#fa9a02] font-bold text-xl">03</div>,
     },
   ];
 
   return (
     <Layout>
       {/* ================= HERO ================= */}
-      <section className="min-h-[90vh] flex items-center py-12 bg-[#D1D1D1] dark:bg-[#aba4a4] text-[#3f3f39] dark:text-white">
-        <motion.div
-          variants={sectionVariants}
-          initial="hidden"
-          animate="visible"
-          className="container mx-auto px-4"
-        >
+      <section className="min-h-[90vh] flex items-center py-12 bg-[#fffcf2] dark:bg-[#00030d] text-[#3f3f39] dark:text-white">
+        <motion.div variants={sectionVariants} initial="hidden" animate="visible" className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
+
             {/* LEFT */}
             <div className="space-y-6">
-              <motion.span custom={0} variants={textRevealVariants} className="inline-block px-4 py-2 bg-[#faa114]/10 text-[#faa114] rounded-full text-sm font-medium">
+              <motion.span
+                custom={0}
+                variants={textRevealVariants}
+                className="inline-block px-4 py-2 bg-[#fa9a02]/10 text-[#fa9a02] rounded-full text-sm font-medium"
+              >
                 Curriculum-Aligned EdTech Platform
               </motion.span>
 
               <motion.h1 custom={1} variants={textRevealVariants} className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                Connecting Education with <span className="text-[#eb9710]">Reality</span>
+                Connecting Education with{" "}
+                <span className="text-[#fa9a02]">Reality</span>
               </motion.h1>
 
               <motion.p custom={2} variants={textRevealVariants} className="text-lg max-w-lg opacity-80">
@@ -172,7 +125,7 @@ const Index = () => {
               </motion.p>
 
               <motion.div custom={3} variants={textRevealVariants} className="flex gap-4 flex-wrap">
-                <Button asChild size="lg" className="bg-[#faa114] text-[#3f3f39]">
+                <Button asChild size="lg" className="bg-[#fa9a02] text-[#3f3f39]">
                   <Link to="/courses">
                     Explore Our Approach <ChevronRight className="ml-2 w-4 h-4" />
                   </Link>
@@ -192,23 +145,27 @@ const Index = () => {
       </section>
 
       {/* ================= WHY TECHINS ================= */}
-      <section className="py-20 bg-[#D1D1D1] dark:bg-[#aba4a4] text-[#3f3f39] dark:text-white">
+      <section className="py-20 bg-[#fffcf2] dark:bg-[#00030d] text-[#3f3f39] dark:text-white">
         <motion.div variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="container mx-auto px-4">
           <AnimatedSection className="text-center max-w-2xl mx-auto mb-12">
             <motion.h2 custom={0} variants={textRevealVariants} className="text-3xl lg:text-4xl font-bold mb-4">
-              Why TECHINS ?
+              Why <span className="text-[#fa9a02]">TECHINS</span> ?
             </motion.h2>
             <motion.p custom={1} variants={textRevealVariants} className="opacity-80">
               Designed around how students actually learn — clarity over memorization.
             </motion.p>
           </AnimatedSection>
 
+          {/* CARDS */}
           <motion.div variants={containerVariants} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((item, index) => (
-              <motion.div key={index} variants={cardVariants}
+              <motion.div
+                key={index}
+                variants={cardVariants}
                 whileHover={isMobile ? {} : { y: -12, scale: 1.05 }}
                 whileTap={isMobile ? { scale: 0.97 } : {}}
-                className="bg-[#786e67] dark:bg-[#2b2a28] rounded-xl p-6 text-white">
+                className="bg-[#786e67] dark:bg-[#1a1d1f] rounded-xl p-6 text-white"
+              >
                 <motion.div variants={iconVariants} className="mb-4">
                   {item.icon}
                 </motion.div>

@@ -9,16 +9,18 @@ const About = () => {
   return (
     <Layout>
       {/* HERO SECTION */}
-      <section className="py-20 bg-[#dbd7c7] dark:bg-[#b3aa9e] text-neutral-900 dark:text-neutral-100">
+      <section className="py-20 bg-[#fffcf2] dark:bg-[#00030d] text-neutral-900 dark:text-neutral-100">
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-2 bg-[#faa114]/20 text-[#faa114] rounded-full text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-2 bg-[#fa9a02]/10 text-[#fa9a02] rounded-full text-sm font-medium mb-4">
               About TECHINS
             </span>
+
             <h1 className="text-4xl lg:text-5xl font-bold mb-4">
               Connecting Education with{" "}
-              <span className="text-[#faa114]">Reality</span>
+              <span className="text-[#fa9a02]">Reality</span>
             </h1>
+
             <p className="text-lg opacity-80">
               TECHINS (Technologically Innovative Students) is an MSME-registered
               EdTech and educational research organization focused on bridging
@@ -34,7 +36,7 @@ const About = () => {
                   alt="TECHINS learning environment"
                   className="rounded-2xl shadow-xl w-full"
                 />
-                <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-[#faa114]/30 rounded-full blur-3xl" />
+                <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-[#fa9a02]/30 rounded-full blur-3xl" />
               </div>
             </AnimatedSection>
 
@@ -52,18 +54,18 @@ const About = () => {
               </p>
 
               <div className="flex gap-8 pt-4">
-                <div>
-                  <p className="text-3xl font-bold text-[#faa114]">1+</p>
-                  <p className="text-sm opacity-70">Years of Impact</p>
-                </div>
-                <div>
-                  <p className="text-3xl font-bold text-[#faa114]">50+</p>
-                  <p className="text-sm opacity-70">Academic Mentors</p>
-                </div>
-                <div>
-                  <p className="text-3xl font-bold text-[#faa114]">95%</p>
-                  <p className="text-sm opacity-70">Learning Satisfaction</p>
-                </div>
+                {[
+                  { value: "1+", label: "Years of Impact" },
+                  { value: "50+", label: "Academic Mentors" },
+                  { value: "95%", label: "Learning Satisfaction" },
+                ].map((item, i) => (
+                  <div key={i}>
+                    <p className="text-3xl font-bold text-[#fa9a02]">
+                      {item.value}
+                    </p>
+                    <p className="text-sm opacity-70">{item.label}</p>
+                  </div>
+                ))}
               </div>
             </AnimatedSection>
           </div>
@@ -71,15 +73,15 @@ const About = () => {
       </section>
 
       {/* MISSION & VISION */}
-      <section className="py-20 bg-[#dbd7c7] dark:bg-[#b3aa9e] text-neutral-900 dark:text-neutral-100">
+      <section className="py-20 bg-[#fffcf2] dark:bg-[#00030d] text-neutral-900 dark:text-neutral-100">
         <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8">
           <AnimatedSection direction="left">
             <motion.div
               whileHover={{ y: -4 }}
-              className="bg-[#786e67] dark:bg-[#262a2b] text-white rounded-2xl p-8 h-full"
+              className="bg-[#786e67] dark:bg-[#1a1d1f] text-white rounded-2xl p-8 h-full"
             >
-              <div className="p-4 bg-[#faa114]/20 rounded-xl inline-block mb-6">
-                <Target className="w-8 h-8 text-[#faa114]" />
+              <div className="p-4 bg-[#fa9a02]/20 rounded-xl inline-block mb-6">
+                <Target className="w-8 h-8 text-[#fa9a02]" />
               </div>
               <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
               <p className="opacity-90 leading-relaxed">
@@ -93,10 +95,10 @@ const About = () => {
           <AnimatedSection direction="right">
             <motion.div
               whileHover={{ y: -4 }}
-              className="bg-[#786e67] dark:bg-[#262a2b] text-white rounded-2xl p-8 h-full"
+              className="bg-[#786e67] dark:bg-[#1a1d1f] text-white rounded-2xl p-8 h-full"
             >
-              <div className="p-4 bg-[#faa114]/20 rounded-xl inline-block mb-6">
-                <Eye className="w-8 h-8 text-[#faa114]" />
+              <div className="p-4 bg-[#fa9a02]/20 rounded-xl inline-block mb-6">
+                <Eye className="w-8 h-8 text-[#fa9a02]" />
               </div>
               <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
               <p className="opacity-90 leading-relaxed">
@@ -109,7 +111,7 @@ const About = () => {
       </section>
 
       {/* FOUNDER SECTION */}
-      <section className="py-20 bg-[#dbd7c7] dark:bg-[#b3aa9e] text-neutral-900 dark:text-neutral-100">
+      <section className="py-20 bg-[#fffcf2] dark:bg-[#00030d] text-neutral-900 dark:text-neutral-100">
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
@@ -121,10 +123,10 @@ const About = () => {
           <AnimatedSection>
             <motion.div
               whileHover={{ y: -8 }}
-              className="max-w-md mx-auto bg-[#786e67] dark:bg-[#262a2b] text-white rounded-2xl p-8 text-center"
+              className="max-w-md mx-auto bg-[#786e67] dark:bg-[#1a1d1f] text-white rounded-2xl p-8 text-center"
             >
               <div className="flex justify-center mb-6">
-                <div className="w-56 h-56 rounded-full overflow-hidden border-4 border-[#faa114]/40">
+                <div className="w-56 h-56 rounded-full overflow-hidden border-4 border-[#fa9a02]/40">
                   <img
                     src={founderImg}
                     alt="Siva K.K - Founder & CEO"
@@ -134,34 +136,25 @@ const About = () => {
               </div>
 
               <h3 className="text-2xl font-bold mb-1">Siva K.K</h3>
-              <p className="text-[#faa114] mb-2">Founder & CEO – TECHINS</p>
+              <p className="text-[#fa9a02] mb-2">
+                Founder & CEO – TECHINS
+              </p>
 
               <p className="opacity-80 text-sm mb-4">
                 Students study for years but often lack clarity about why they study
                 and how learning connects to life. TECHINS exists to solve that gap.
               </p>
 
-              {/* SOCIAL LINKS */}
               <div className="flex justify-center gap-3">
-                <motion.a
-                  href="https://www.instagram.com/mr.k.k.siva?igsh=MW5mOGgwZm83YXp6aQ%3D%3D&utm_source=qr"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  className="p-3 rounded-full bg-[#faa114] hover:bg-[#e69510]"
-                >
-                  <Instagram className="text-black" />
-                </motion.a>
-
-                <motion.a
-                  href="https://www.linkedin.com/in/siva-k-k-218b96360?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  className="p-3 rounded-full bg-[#faa114] hover:bg-[#e69510]"
-                >
-                  <Linkedin className="text-black" />
-                </motion.a>
+                {[Instagram, Linkedin].map((Icon, i) => (
+                  <motion.a
+                    key={i}
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    className="p-3 rounded-full bg-[#fa9a02] text-black"
+                  >
+                    <Icon />
+                  </motion.a>
+                ))}
               </div>
             </motion.div>
           </AnimatedSection>
@@ -169,7 +162,7 @@ const About = () => {
       </section>
 
       {/* VALUES SECTION */}
-      <section className="py-20 bg-[#dbd7c7] dark:bg-[#b3aa9e] text-neutral-900 dark:text-neutral-100">
+      <section className="py-20 bg-[#fffcf2] dark:bg-[#00030d] text-neutral-900 dark:text-neutral-100">
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
@@ -187,7 +180,7 @@ const About = () => {
               <AnimatedSection key={i} delay={i * 0.1}>
                 <motion.div
                   whileHover={{ y: -8 }}
-                  className="bg-[#786e67] dark:bg-[#262a2b] text-white rounded-xl p-6 text-center h-full"
+                  className="bg-[#786e67] dark:bg-[#1a1d1f] text-white rounded-xl p-6 text-center h-full"
                 >
                   <span className="text-4xl mb-4 block">{v.icon}</span>
                   <h3 className="text-xl font-semibold mb-2">{v.title}</h3>
