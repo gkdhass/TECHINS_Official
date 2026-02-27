@@ -9,7 +9,7 @@ const About = () => {
   return (
     <Layout>
       {/* HERO SECTION */}
-      <section className="py-20 bg-[#fffcf2] dark:bg-[#00030d] text-neutral-900 dark:text-neutral-100">
+      <section className="py-20 bg-[#B7B7B7] dark:bg-[#0C120C] text-neutral-900 dark:text-neutral-100">
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-2 bg-[#fa9a02]/10 text-[#fa9a02] rounded-full text-sm font-medium mb-4">
@@ -73,7 +73,7 @@ const About = () => {
       </section>
 
       {/* MISSION & VISION */}
-      <section className="py-20 bg-[#fffcf2] dark:bg-[#00030d] text-neutral-900 dark:text-neutral-100">
+      <section className="py-20 bg-[#B7B7B7] dark:bg-[#0C120C] text-neutral-900 dark:text-neutral-100">
         <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8">
           <AnimatedSection direction="left">
             <motion.div
@@ -111,7 +111,7 @@ const About = () => {
       </section>
 
       {/* FOUNDER SECTION */}
-      <section className="py-20 bg-[#fffcf2] dark:bg-[#00030d] text-neutral-900 dark:text-neutral-100">
+      <section className="py-20 bg-[#B7B7B7] dark:bg-[#0C120C] text-neutral-900 dark:text-neutral-100">
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
@@ -173,7 +173,7 @@ const About = () => {
       </section>
 
       {/* VALUES SECTION */}
-      <section className="py-20 bg-[#fffcf2] dark:bg-[#00030d] text-neutral-900 dark:text-neutral-100">
+      <section className="py-20 bg-[#B7B7B7] dark:bg-[#0C120C] text-neutral-900 dark:text-neutral-100">
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">

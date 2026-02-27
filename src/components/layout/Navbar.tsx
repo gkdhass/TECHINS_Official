@@ -41,7 +41,7 @@ const Navbar = () => {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="
         fixed top-0 left-0 right-0 z-50
-        bg-white dark:bg-[#2B2A28]
+        bg-[#B7B7B7] dark:bg-[#0C120C]
         backdrop-blur-md
       "
     >
@@ -124,7 +124,7 @@ const Navbar = () => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden overflow-hidden bg-white dark:bg-[#2B2A28]"
+              className="lg:hidden overflow-hidden bg-[#B7B7B7] dark:bg-[#0C120C]"
             >
               <div className="py-4 space-y-2">
                 {navLinks.map((link) => (

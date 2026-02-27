@@ -109,7 +109,7 @@ const Contact = () => {
 
   return (
     <Layout>
-      <section className="py-16 bg-[#fffcf2] dark:bg-[#00030d]">
+      <section className="py-16 bg-[#B7B7B7] dark:bg-[#0C120C]">
         <div className="container mx-auto px-4">
 
           {/* HEADER */}
@@ -244,7 +244,7 @@ const Contact = () => {
                     href={s.href}
                     target="_blank"
                     whileHover={{ scale: 1.1 }}
-                    className="p-3 rounded-lg bg-[#fffcf2] dark:bg-[#00030d] text-[#fa9a02]"
+                    className="p-3 rounded-lg bg-[#B7B7B7] dark:bg-[#0C120C] text-[#fa9a02]"
                   >
                     <s.icon size={18} />
                   </motion.a>

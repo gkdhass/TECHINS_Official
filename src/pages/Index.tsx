@@ -132,7 +132,7 @@ const Index = () => {
   return (
     <Layout>
       {/* ================= HERO ================= */}
-      <section className="min-h-[90vh] flex items-center py-12 bg-[#fffcf2] dark:bg-[#00030d]">
+      <section className="min-h-[90vh] flex items-center py-12 bg-[#B7B7B7] dark:bg-[#0C120C]">
         <motion.div variants={sectionVariants} initial="hidden" animate="visible" className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
@@ -172,7 +172,7 @@ const Index = () => {
       </section>
 
       {/* ================= WHY TECHINS ================= */}
-      <section className="py-20 bg-[#fffcf2] dark:bg-[#00030d]">
+      <section className="py-20 bg-[#B7B7B7] dark:bg-[#0C120C]">
         <motion.div variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}
           className="container mx-auto px-4">
           <AnimatedSection className="text-center max-w-2xl mx-auto mb-12">
@@ -201,7 +201,7 @@ const Index = () => {
       </section>
 
       {/* ================= OUR PARTNERS (SLOW & SMOOTH) ================= */}
-      {/* <section className="py-20 bg-[#fffcf2] dark:bg-[#00030d] overflow-hidden">
+      {/* <section className="py-20 bg-[#B7B7B7] dark:bg-[#0C120C] overflow-hidden">
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center max-w-2xl mx-auto mb-10">
             <h2 className="text-3xl lg:text-4xl font-bold">

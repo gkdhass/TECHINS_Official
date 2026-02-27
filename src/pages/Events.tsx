@@ -18,7 +18,7 @@ const Events = () => {
 
   return (
     <Layout>
-      <section className="py-20 bg-[#fffcf2] dark:bg-[#00030d] text-neutral-900 dark:text-neutral-100">
+      <section className="py-20 bg-[#B7B7B7] dark:bg-[#0C120C] text-neutral-900 dark:text-neutral-100">
         <div className="container mx-auto px-4">
 
           {/* ================= HERO ================= */}
