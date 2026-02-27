@@ -18,16 +18,15 @@ const Navbar = () => {
   const location = useLocation();
   const { theme, toggleTheme } = useTheme();
 
-  // Logo shadows
   const baseShadow =
     theme === "dark"
-      ? "drop-shadow(0 0 10px rgba(255,255,255,0.6))"
-      : "drop-shadow(0 0 8px rgba(0,0,0,0.4))";
+      ? "drop-shadow(0 0 10px rgba(255,255,255,0.4))"
+      : "drop-shadow(0 0 8px rgba(0,0,0,0.3))";
 
   const hoverShadow =
     theme === "dark"
-      ? "drop-shadow(0 0 14px rgba(255,255,255,0.85))"
-      : "drop-shadow(0 0 12px rgba(0,0,0,0.6))";
+      ? "drop-shadow(0 0 14px rgba(255,255,255,0.7))"
+      : "drop-shadow(0 0 12px rgba(0,0,0,0.5))";
 
   const activeShadow =
     theme === "dark"
@@ -39,11 +38,7 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="
-        fixed top-0 left-0 right-0 z-50
-        bg-[#B7B7B7] dark:bg-[#0C120C]
-        backdrop-blur-md
-      "
+      className="fixed top-0 left-0 right-0 z-50 bg-[#B7B7B7] dark:bg-[#0C120C] backdrop-blur-md border-b border-black/10 dark:border-white/10"
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 lg:h-20">
@@ -62,9 +57,8 @@ const Navbar = () => {
               transition={{ type: "spring", stiffness: 300, damping: 18 }}
               className="w-14 h-14 object-contain cursor-pointer"
             />
-
-            <span className="text-xl lg:text-2xl font-bold text-black dark:text-[#EFE7DB]">
-              TECH<span>INS</span>
+            <span className="text-xl lg:text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+              TECH<span className="text-[#fa9a02]">INS</span>
             </span>
           </Link>
 
@@ -74,15 +68,13 @@ const Navbar = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className="relative py-2 text-black dark:text-[#EFE7DB]
-                hover:opacity-80 transition-colors"
+                className="relative py-2 text-neutral-800 dark:text-neutral-200 hover:text-[#fa9a02] dark:hover:text-[#fa9a02] transition-colors font-medium"
               >
                 {link.name}
                 {location.pathname === link.path && (
                   <motion.div
                     layoutId="navbar-indicator"
-                    className="absolute bottom-0 left-0 right-0 h-0.5
-                    bg-black dark:bg-[#FAA114]"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#fa9a02]"
                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
                   />
                 )}
@@ -96,7 +88,7 @@ const Navbar = () => {
               onClick={toggleTheme}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="text-black dark:text-[#EFE7DB]"
+              className="text-neutral-800 dark:text-neutral-200"
             >
               {theme === "light" ? (
                 <Moon className="w-5 h-5" />
@@ -106,7 +98,7 @@ const Navbar = () => {
             </motion.button>
 
             <motion.button
-              className="lg:hidden text-black dark:text-[#EFE7DB]"
+              className="lg:hidden text-neutral-800 dark:text-neutral-200"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsOpen(!isOpen)}
@@ -132,9 +124,7 @@ const Navbar = () => {
                     key={link.path}
                     to={link.path}
                     onClick={() => setIsOpen(false)}
-                    className="block py-3 px-4 rounded-lg
-                    text-black dark:text-[#EFE7DB]
-                    hover:bg-black/10 dark:hover:bg-white/10"
+                    className="block py-3 px-4 rounded-lg text-neutral-800 dark:text-neutral-200 hover:bg-black/10 dark:hover:bg-white/10"
                   >
                     {link.name}
                   </Link>
