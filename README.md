@@ -3,7 +3,7 @@
 A modern, professional startup portfolio website for TECHINS, an EdTech company.  
 Built with a clean corporate UI, smooth animations, and full responsiveness across devices.
 
-[Visit the site!](techins.in)
+Visit the site! https://techins.in
 
 ---
 
