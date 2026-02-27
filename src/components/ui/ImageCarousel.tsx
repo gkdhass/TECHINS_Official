@@ -45,7 +45,7 @@ const Carousel = ({
 
   return (
     <div
-      className="relative w-full overflow-hidden rounded-xl"
+      className="relative w-full h-full overflow-hidden rounded-xl"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -56,7 +56,7 @@ const Carousel = ({
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -100 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="w-full"
+          className="w-full h-full"
         >
           {items[currentIndex]}
         </motion.div>
